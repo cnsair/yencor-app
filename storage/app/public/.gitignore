@@ -1,33 +1,3 @@
 *
 !.gitignore
 
-
-
-
-$w.onReady(() => {
-  // Quand l'utilisateur clique sur le bouton submit
-  $w("#submitButton").onClick(() => {
-    // Vérifie si un fichier a été sélectionné
-    if ($w("#fileUpload").value.length > 0) {
-      // Soumettre le fichier à la base de données
-      let mediaFile = $w("#fileUpload").value[0];  // Récupère le fichier téléchargé
-
-      wixData.insert("Stories", {
-        "media": mediaFile.url,  // Insère l'URL du fichier dans la collection
-        "mediaType": mediaFile.type,  // Insère le type du fichier (image ou vidéo)
-        "uploadDate": new Date()  // Date actuelle d'upload
-      })
-      .then(() => {
-        console.log("Fichier soumis avec succès !");
-        // Optionnellement, tu peux réinitialiser le formulaire ou afficher un message de succès
-        $w("#fileUpload").reset(); // Réinitialise le champ de téléchargement
-        $w("#submitButton").disable(); // Désactive le bouton après soumission
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la soumission :", error);
-      });
-    } else {
-      console.log("Aucun fichier sélectionné");
-    }
-  });
-});
