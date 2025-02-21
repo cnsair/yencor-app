@@ -123,16 +123,24 @@
                                                 @elseif ($user->status == "3")
                                                     <button class="btn btn-sm btn-primary">Inactive</button>
                                                 @elseif ($user->status == "2")
-                                                    <button class="btn btn-sm btn-default">Susupended</button>
+                                                    <button class="btn btn-sm btn-default">Suspended</button>
                                                 @elseif ($user->status == "1")
                                                     <button class="btn btn-sm btn-danger">Banned</button>
                                                 @endif
+
+                                                <!-- Action Buttons -->
+                                                <div class="btn-group">
+                                                    <button class="btn btn-sm btn-warning" onclick="updateUserStatus({{ $user->id }}, 1)">Ban</button>
+                                                    <button class="btn btn-sm btn-info" onclick="updateUserStatus({{ $user->id }}, 2)">Suspend</button>
+                                                    <button class="btn btn-sm btn-secondary" onclick="updateUserStatus({{ $user->id }}, 3)">Deactivate</button>
+                                                    <button class="btn btn-sm btn-success" onclick="updateUserStatus({{ $user->id }}, 4)">Activate</button>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <!-- <tr>
                                     <th>Name/ID</th>
                                     <th>Phone</th>
                                     <th>Email</th>
@@ -140,7 +148,7 @@
                                     <th>User Type</th>
                                     <th>Status</th>
                                 </tr>
-                                </tfoot>
+                                </tfoot> -->
                             </table>
                         </div>
                     </div>
@@ -269,4 +277,32 @@
             </div>
         </div>
     </div>
+
+<script>
+    function updateUserStatus(userId, status) {
+        if (confirm("Are you sure you want to update this user's status?")) {
+            fetch(`/admin/users/${userId}/update-status`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token
+                },
+                body: JSON.stringify({ status: status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("User status updated successfully!");
+                    location.reload(); // Refresh the page to reflect the changes
+                } else {
+                    alert("Failed to update user status: " + (data.error || "Unknown error"));
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while updating the status.");
+            });
+        }
+    }
+</script>
 @endsection

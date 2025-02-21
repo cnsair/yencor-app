@@ -189,6 +189,10 @@ Route::group(['middleware' => 'auth'], function() {
                     // guest messages
                     Route::get('/admin/guest-messages', [GuestMessageController::class, 'index'])
                         ->name('guest-messages');
+                    
+                    // Route to handle updating user status (ban, suspend, deactivate, activate)
+                    Route::post('/admin/users/{id}/update-status', [UserController::class, 'updateStatus'])
+                    ->name('admin.users.update-status');
                 });
 
             });
