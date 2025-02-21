@@ -13,7 +13,7 @@ use App\Http\Controllers\VehicleController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
-
+use App\Http\Controllers\TestimonialController;
 
 
 
@@ -54,6 +54,18 @@ Route::middleware('guest')->group(function () {
     Route::get('/book-ride', function () {
         return view('home.book-ride');
     })->name('book-ride');
+
+    Route::get('/testimonial-page', function () {
+        return view('home.testimonial-page');
+    })->name('testimonial');
+
+    //Gerard
+    Route::get('/add-testimonial', [TestimonialController::class, 'index'])->name('testimonial.index');
+    Route::post('/add-testimonial', [TestimonialController::class, 'store'])->name('testimonial.store');
+    // Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+
+    Route::get('/testimonial/create', [TestimonialController::class, 'create'])->name('testimonial.create');
+Route::post('/testimonial/store', [TestimonialController::class, 'store'])->name('testimonial.store');
 
 });
 
@@ -198,7 +210,14 @@ Route::get('/contact-us', function () {
 
 Route::post('/contact-us', [GuestMessageController::class, 'store'])->name('contact-us.store');
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
+    Route::post('/admin/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
+    Route::post('/admin/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
+});
+
 // Routes for admin to view messages
 Route::middleware('auth')->group(function () {
     Route::get('/admin/guest-messages', [GuestMessageController::class, 'index'])->name('admin.guest-messages');
 });
+
