@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://yencor.com" target="_blank">
-        <img src="https://yencor.com/assets/assets/images/logo/logo-one.png" width="400" alt="Laravel Logo">
+        <img src="https://yencor.com/assets/assets/images/logo/logo-one.png" width="200" alt="Yencor Logo">
     </a>
 </p>
 
