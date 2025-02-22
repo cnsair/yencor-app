@@ -21,14 +21,14 @@
                 <div class="single-contact-info text-center">
                     <img src="assets/assets/images/icon/contact_info.webp" alt="icon">
                     <h4>Address</h4>
-                    <p>Address : GT25XXXX Sakumono, Tema, Accra, Ghana.</p>
+                    <p>Address : akumono, Tema, Accra, Ghana.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="single-contact-info text-center">
                     <img src="assets/assets/images/icon/contact_info-2.webp" alt="icon">
                     <h4>Phone number</h4>
-                    <p>Phone : +233 24 024 1097</p>
+                    <p>Phone : (+233) 20 970 5088</p>
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-0 col-sm-6 offset-sm-3">
@@ -37,7 +37,7 @@
                     <h4>E-mail</h4>
                     <p>Email : 
                         <a href="#" class="__cf_email__" >
-                            info@yencor.com | support@yencor.com
+                            admin@yencor.com | info@yencor.com | support@yencor.com
                         </a>
                     </p>
                 </div>

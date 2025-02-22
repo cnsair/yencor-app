@@ -73,13 +73,15 @@
                                         <label for="passwordConfirm">Confirm Password</label>
                                     </div>
                                    
-                                    <div class="">
-                                        <input type="checkbox" id="agree" name="terms" {{ old('terms') == 1 ? 'checked' : '' }}>
-                                        <label for="agree">I agree to the
-                                            <a href="#">Terms and Conditions</a> and
-                                            <a href="#">Privacy Policy</a>
-                                        </label>
-                                    </div>
+                                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                        <div class="">
+                                            <input type="checkbox" id="agree" name="terms" {{ old('terms') == 1 ? 'checked' : '' }}>
+                                            <label for="agree">I agree to the
+                                                <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
+                                                <a href="{{ route('policy.show') }}">Privacy Policy</a>
+                                            </label>
+                                        </div>
+                                    @endif
                                     <button type="submit" name="register" class="w-100 btn btn-lg btn-primary">Register</button>
                                 </form>
                                 <p class="acclink">Already have an account?
@@ -136,13 +138,17 @@
                                             id="passwordConfirm2" placeholder="Confirm Password" required>
                                         <label for="passwordConfirm2">Confirm Password</label>
                                     </div>
-                                    <div class="">
-                                        <input type="checkbox" id="agree2" name="terms" {{ old('terms') == 1 ? 'checked' : '' }} >
-                                        <label for="agree2">I agree to the
-                                            <a href="#">Terms and Conditions</a> and
-                                            <a href="#">Privacy Policy</a>
-                                        </label>
-                                    </div>
+
+                                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                        <div class="">
+                                            <input type="checkbox" id="agree2" name="terms" {{ old('terms') == 1 ? 'checked' : '' }}>
+                                            <label for="agree2">I agree to the
+                                                <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
+                                                <a href="{{ route('policy.show') }}">Privacy Policy</a>
+                                            </label>
+                                        </div>
+                                    @endif
+
                                     <button type="submit" name="register" class="w-100 btn btn-lg btn-primary">Register</button>
                                 </form>
 

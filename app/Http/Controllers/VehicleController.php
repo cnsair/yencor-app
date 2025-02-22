@@ -28,8 +28,6 @@ class VehicleController extends Controller
 
         return view('driver.dashboard')
             ->with('vehicle_data', $vehicle_data);
-
-        // return view('common.show-job', compact('post_jobs'));
     }
 
     /**

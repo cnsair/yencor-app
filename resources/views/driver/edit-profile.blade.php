@@ -130,7 +130,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="aboutDesc">Write a little about you (500 characters max)</label>
-                                            <textarea class="form-control text-muted" id="aboutDesc" name="biography">{{ !empty(Auth()->user()->biography) ? old('biography', Auth()->user()->biography) : 'Please write a bit about yourself' }}</textarea>
+                                            <textarea class="form-control text-muted" id="aboutDesc" name="biography">{{ !empty(Auth()->user()->biography) ? old('biography', Auth()->user()->biography) : '' }}</textarea>
                                             <x-input-error for="biography" class="mt-2" />
                                         </div>
                                         <!-- <a href="#" class="button button-dark">Save</a> -->

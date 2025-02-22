@@ -5,7 +5,7 @@
                 <div class="col-lg-3">
                     <div class="footer-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                            <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" height="50" alt="Site Logo">
                         </a>
                     </div>
                 </div>

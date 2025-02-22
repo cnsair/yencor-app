@@ -7,11 +7,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Driver - {{ Auth()->user()->firstname }}</title>
-    <meta name="description" content>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap" async defer></script>
+
+    <meta name="description" content="yencor - An AI-Powered Smart Public Transportation">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/assets/images/yenkor-favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/assets/images/icon/yencor-favicon2.ico') }}">
 
     <x-css-links/>
+
+    <!-- Livewire Styles -->
+    @livewireStyles
 </head>
 
 <body class="theme-2">
@@ -23,6 +29,9 @@
     <x-dashboard-footer/>
 
     <x-dashboard-js-script/>
+
+    <!-- Livewire Scripts -->
+    @livewireScripts
 
 </body>
 

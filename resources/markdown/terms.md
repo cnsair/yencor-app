@@ -1,71 +1,64 @@
-# Terms of Service
+# Terms and Conditions
 
+## 1. Introduction
+Welcome to Yencor, a car-hailing service ("App"). By accessing or using our services, you agree to comply with and be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms, please do not use our App.
 
+These Terms constitute a legally binding agreement between you (the "User") and Yencor Technologies Ltd. ("Company", "We", "Us").
 
-Terms and Conditions of Use
+## 2. Definitions
+- **Rider**: A user who requests transportation services through the App.
+- **Driver**: A user who provides transportation services through the App.
+- **Platform**: The software and infrastructure that facilitate the connection between Riders and Drivers.
+- **Third Parties**: External service providers such as Google Maps, AI analytics, and payment processors.
 
-1. Introduction
-Welcome to Yenkor APP, a ridesharing platform aimed at connecting drivers and passengers in Ghana. By using this application, you unconditionally accept these Terms and Conditions of Use (T&C). If you do not accept these terms, please do not use the application.
+## 3. User Eligibility & Registration
+- Users must be at least **18 years old** to create an account.
+- Users agree to provide **accurate and complete** information during registration.
+- The Company reserves the right to suspend or terminate accounts for fraudulent activities or misuse.
 
-2. Definitions
+## 4. Service Scope
+- Yencor connects Riders and Drivers for transportation services.
+- The service is initially launched in **Ghana** but will expand globally.
+- The Company does not own vehicles or employ Drivers; all Drivers operate independently.
 
-Application: The digital platform offered by Yenkor APP.
+## 5. Driver & Vehicle Requirements
+- All Drivers and vehicles must comply with **local laws and regulations**.
+- In Ghana, this includes compliance with the **Driver and Vehicle Licensing Authority (DVLA)** requirements.
+- Vehicles must pass safety inspections and possess necessary permits.
+- Drivers must hold a valid **driver’s license**, vehicle insurance, and any required operational permits.
 
-User: Any person using the application, including drivers and passengers.
+## 6. Fees & Payments
+- Riders are charged for each trip based on distance, time, and demand.
+- A **Digital Transport Fee (DTF)** of **GHC 1 per trip** applies, as mandated by the **DVLA**.
+- Payment transactions are processed via **third-party payment providers**.
 
-Driver: Person offering rides via the application.
+## 7. Third-Party Services
+- **Google Maps**: Used for navigation and location services. By using our App, you agree to Google’s **[Terms of Service](https://www.google.com/maps/terms/)**.
+- **Artificial Intelligence**: AI is used for optimizing routes, matching Riders and Drivers, and fraud detection.
+- **Payment Providers**: Financial transactions are handled by third-party processors, and their respective policies apply.
 
-Passenger: Person booking a ride via the application.
+## 8. User Conduct
+- Users must not:
+  - Engage in illegal activities using the App.
+  - Use the App for transporting illegal substances or hazardous materials.
+  - Misuse or manipulate the platform for fraudulent purposes.
 
-Service: The ridesharing features provided by the application.
+## 9. Data Collection & Sharing
+- The App collects user data such as **trip history, GPS location, and payment details**.
+- Certain data is shared with the **DVLA** as required by **Ghanaian law**.
+- Third-party services like **Google Maps and AI analytics** also collect user data.
 
-3. Registration and Access to the Service
+## 10. Limitation of Liability
+- Yencor is **not responsible** for delays, accidents, or disputes between Riders and Drivers.
+- Third-party services such as **Google Maps** and **payment processors** operate independently, and we are not liable for their errors or failures.
 
-To access the service, the user must create an account with accurate information.
+## 11. Modifications to Terms
+- These Terms may be updated at any time.
+- Users will be notified of significant changes, and continued use of the App implies acceptance.
 
-Drivers must provide supporting documents: valid driving license, vehicle registration and insurance.
+## 12. Governing Law
+- These Terms are governed by the **laws of Ghana**.
+- Any disputes arising from these Terms will be settled in Ghanaian courts.
 
-Access to the service is reserved for persons aged 18 years or above.
-
- 4. User Obligations
-
-Drivers agree to abide by the Ghanaian Highway Code and maintain their vehicles in good condition.
-
-Passengers must respect the booking times and the driver.
-
-Any misuse or fraudulent use of the application will result in immediate suspension of the account.
-
-5. Payment and Fees
-
-Payments for rides are made through the application using secure methods.
-
-A commission of [x%] is applied to the ride amount to cover service fees.
-
-Refunds are possible in the event of a problem validated by the support team.
-
-6. Platform Liability
-
-Yenkor APP acts only as an intermediary between drivers and passengers.
-
-The platform declines all responsibility in the event of an accident, delay or dispute between users.
-
-Users assume full responsibility for their interactions and mutual commitments.
-
- 7. Dispute Resolution
-
-In the event of a dispute, the parties must first attempt to resolve the issue amicably.
-
-If no agreement is reached, the dispute will be submitted to the competent courts of Ghana.
-
-8. Modification of the Terms
-
-Yenkor APP reserves the right to modify these T&Cs at any time. Users will be notified of the changes via the application.
-
-9. Account Termination
-
-The user may delete their account at any time via the application settings.
-
-Yenkor APP may suspend or terminate an account in the event of a violation of these terms.
-
-10. Applicable Law
-These terms are governed by the laws in force in Ghana.
+## 13. Contact Information
+- For inquiries regarding these Terms, contact **support@yencor.com**.

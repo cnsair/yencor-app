@@ -13,12 +13,12 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="footer-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                            <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" height="50" alt="Site Logo">
                         </a>
                     </div>
                     <div class="footer-text pe-lg-3">
                         <p class="mb-4">
-                            Yencor - The definitive ride hailing app for everyone.
+                            Yencor - The AI-Powered Smart Public Transportation.
                         </p>
                     </div>
                     <div class="helpline">
@@ -92,11 +92,11 @@
                             <a target="_blank" href="https://x.com/yencordotcom" class="twitter" aria-label="twitter"><i class="fab fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="#" class="instagram" aria-label="instagram"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a target="_blank" href="https://t.me/yencordotcom" class="telegram" aria-label="instagram"><i
+                                    class="fab fa-telegram"></i></a>
                         </li>
                         <!-- <li>
-                            <a href="#" class="linkedin" aria-label="linkedin"><i
+                            <a target="_blank" href="#" class="linkedin" aria-label="linkedin"><i
                                     class="fab fa-linkedin-in"></i></a>
                         </li> -->
                     </ul>

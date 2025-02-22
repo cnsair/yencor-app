@@ -160,7 +160,6 @@
                 </div>
             </div>
 
-            <!-- <button type="submit">Register Vehicle</button> -->
             @if (session()->has('message'))
                 <div>{{ session('message') }}</div>
             @endif

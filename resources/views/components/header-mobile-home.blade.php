@@ -2,7 +2,7 @@
     <div class="rep-header">
         <div class="logo">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/assets/images/logo-main.webp') }}" width="122" height="32" alt="Site Logo">
+                <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" height="100" alt="Site Logo">
             </a>
         </div>
         <a href="#" title class="close-menu"><i class="lni lni-close"></i></a>
@@ -24,10 +24,6 @@
                     <i class="fas fa-taxi"></i>Our Vehicles
                 </a>
             </li>
-            <li class="nav-item {{ request()->routeIs('package') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('package') }}">
-                    <i class="fas fa-cube"></i>Packages</a>
-            </li>
             <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('blog') }}">
                     <i class="fas fa-home"></i>Blog
@@ -39,7 +35,7 @@
             </li>
         </ul>
         <div class="header__upper--right flex-column">
-            <a href="{{ route('login') }}" class="button p-3"><i class="far fa-user-astronaut"></i> Drive with us</a>
+            <a href="{{ route('book-ride') }}" class="button p-3"><i class="far fa-user-astronaut"></i> Book ride</a>
             <div class="p-3 my-lg-0 d-inline-flex">
                 <a href="{{ route('register') }}" class="button button-light big">Get Started</a>
             </div>

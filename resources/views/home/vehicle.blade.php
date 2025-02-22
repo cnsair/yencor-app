@@ -27,16 +27,10 @@
                                 <a href="#all" aria-controls="all" role="tab" data-toggle="tab" class="active">All</a>
                             </li>
                             <li role="presentation">
-                                <a href="#scooty" aria-controls="bus" role="tab" data-toggle="tab">Bus</a>
-                            </li>
-                            <li role="presentation">
                                 <a href="#economy" aria-controls="economy" role="tab" data-toggle="tab">Economy</a>
                             </li>
                             <li role="presentation">
                                 <a href="#luxury" aria-controls="luxury" role="tab" data-toggle="tab">Luxury</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#suv" aria-controls="suv" role="tab" data-toggle="tab">SUV</a>
                             </li>
                         </ul>
                     </div>
@@ -46,68 +40,52 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-vehicle-box">
                                         <div class="single-vehilce-img">
-                                            <img src="assets/assets/images/dashboard/vehicle-1.webp" alt="vehicle img">
+                                            <img src="assets/assets/images/home/luxury.png" alt="vehicle img">
                                         </div>
                                         <div class="vehicle-box-hover">
-                                            <h4>Car Name here</h4>
-                                            <p>LXI Optional998 cc,<br /> Manual,<br /> Petrol,<br /> 24.07 kmpl</p>
+                                            <h4>Luxury redefined</h4>
+                                            <p>From anywhere to anywhere</p>
                                         </div>
                                     </div>
                                 </div>
-                               
-                                <!-- <div class="col-lg-3 col-md-6">
-                                    <div class="single-vehicle-box">
-                                        <div class="single-vehilce-img">
-                                            <img src="assets/assets/images/23_our_vehicles.webp" alt="vehicle img">
-                                        </div>
-                                        <div class="vehicle-box-hover">
-                                            <h4>Car Name here</h4>
-                                            <p>LXI Optional998 cc,<br /> Manual,<br /> Petrol,<br /> 24.07 kmpl</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="bus">
-                            <div class="row">
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-vehicle-box">
                                         <div class="single-vehilce-img">
-                                            <img src="assets/assets/images/22_our_vehicles.webp" alt="vehicle img">
+                                            <img src="assets/assets/images/home/economy.png" alt="vehicle img">
                                         </div>
                                         <div class="vehicle-box-hover">
-                                            <h4>Volvo Bus</h4>
-                                            <p>LXI Optional998 cc,<br /> Manual,<br /> Petrol,<br /> 24.07 kmpl</p>
+                                            <h4>Economy</h4>
+                                            <p>We should give this another name better than economy</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div role="tabpanel" class="tab-pane" id="economy">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="single-vehicle-box">
-                                        <div class="single-vehilce-img">
-                                            <img src="assets/assets/images/23_our_vehicles.webp" alt="vehicle img">
-                                        </div>
-                                        <div class="vehicle-box-hover">
-                                            <h4>Car Name here</h4>
-                                            <p>LXI Optional998 cc,<br /> Manual,<br /> Petrol,<br /> 24.07 kmpl</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div role="tabpanel" class="tab-pane" id="luxury">
                             <div class="row">
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-vehicle-box">
                                         <div class="single-vehilce-img">
-                                            <img src="assets/assets/images/dashboard/vehicle-1.webp" alt="vehicle img">
+                                            <img src="assets/assets/images/home/luxury.png" alt="vehicle img">
                                         </div>
                                         <div class="vehicle-box-hover">
-                                            <h4>Chevrolete</h4>
-                                            <p>LXI Optional998 cc,<br /> Manual,<br /> Petrol,<br /> 24.07 kmpl</p>
+                                            <h4>Luxury redefined</h4>
+                                            <p>From anywhere to anywhere</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="economy">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="single-vehicle-box">
+                                        <div class="single-vehilce-img">
+                                            <img src="assets/assets/images/home/economy.png" alt="vehicle img">
+                                        </div>
+                                        <div class="vehicle-box-hover">
+                                            <h4>Economy</h4>
+                                            <p>We should give this another name better than economy</p>
                                         </div>
                                     </div>
                                 </div>

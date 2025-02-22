@@ -7,40 +7,27 @@
 
                         @if ( Auth::user()->isRider() )
 
-                            <div class="d-none d-lg-block logo">
+                            <div class="d-none d-lg-block logo" style="width: 20%;">
                                 <a href="{{ route('rider.dashboard') }}">
-                                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                                    <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo">
                                 </a>
                             </div>
                             <div class="d-block d-lg-none logo w-80px">
                                 <a href="{{ route('rider.dashboard') }}">
-                                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                                    <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo">
                                 </a>
                             </div>
 
                         @elseif ( Auth::user()->isDriver() )
 
-                            <div class="d-none d-lg-block logo">
+                            <div class="d-none d-lg-block logo" style="width: 20%;">
                                 <a href="{{ route('driver.dashboard') }}">
-                                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                                    <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo">
                                 </a>
                             </div>
                             <div class="d-block d-lg-none logo w-80px">
                                 <a href="{{ route('driver.dashboard') }}">
-                                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
-                                </a>
-                            </div>
-
-                        @elseif ( Auth::user()->isAdmin() )
-
-                            <div class="d-none d-lg-block logo">
-                                <a href="{{ route('admin.dashboard') }}">
-                                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
-                                </a>
-                            </div>
-                            <div class="d-block d-lg-none logo w-80px">
-                                <a href="{{ route('admin.dashboard') }}">
-                                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                                    <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo">
                                 </a>
                             </div>
 
@@ -68,12 +55,6 @@
                                 @elseif ( Auth::user()->isDriver() )
                                     <li class="m-0">
                                         <a href="{{ route('driver.dashboard') }}" aria-expanded="false">
-                                            Dashboard       
-                                        </a>
-                                    </li>
-                                @elseif ( Auth::user()->isAdmin() )
-                                    <li class="m-0">
-                                        <a href="{{ route('admin.dashboard') }}" aria-expanded="false">
                                             Dashboard       
                                         </a>
                                     </li>
@@ -121,16 +102,10 @@
                                     <a class="dropdown-item" href="{{ route('driver.register-vehicle.create') }}">Register Vehicle</a>
                                     <a class="dropdown-item" href="#">Earnings</a>
 
-                                @elseif ( Auth::user()->isAdmin() )
-
-                                    <a class="dropdown-item" href="{{ route('admin.edit-profile.edit') }}">Profile</a>
-                                    <a class="dropdown-item" href="{{ route('admin.change-password.edit') }}">Change Password</a>
-
                                 @endif
 
-                                <form method="POST" action="{{ route('logout') }}" style="text-decoration: none;">
+                                <form method="POST" action="{{ route('logout') }}" style="text-decoration: none; background-color:burlywood">
                                     @csrf
-
                                     <button class="dropdown-item">Logout Now</button>
                                 </form>
                             </div>

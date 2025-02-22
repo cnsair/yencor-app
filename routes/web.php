@@ -56,6 +56,13 @@ Route::middleware('guest')->group(function () {
 
     Route::post('/contact-us', [GuestMessageController::class, 'store'])
     ->name('contact-us.store');
+
+    // Route::get('/terms', function () {
+    //     return view('markdown.terms');
+    // })->name('terms');
+    Route::get('/user-location', function () {
+        return view('livewire.maps');
+    });
 });
 
 
@@ -106,7 +113,6 @@ Route::group(['middleware' => 'auth'], function() {
                     //update password page
                     Route::patch('/change-password', [ChangePasswordController::class, 'updatePassword'])
                         ->name('change-password.update');
-
                 });
             });
         });
@@ -194,7 +200,6 @@ Route::group(['middleware' => 'auth'], function() {
             });
         });
     });
-
 
 });
 

@@ -20,18 +20,18 @@
                 <div class="blog-card col-lg-4 col-md-6">
                     <div>
                         <div class="post-thumb">
-                            <img src="assets/assets/images/blog/2.webp" alt class="w-100">
+                            <img src="assets/assets/images/home/bus-1.jpg" alt class="w-100">
                         </div>
                         <div class="post-info-v-2 post-info">
                             <span class="category-v-2 category">discuss</span>
                             <h2>
-                                <a class="blog-link" href="blog-single-post.html" title>5 Things That You Need To Know
+                                <a class="blog-link" href="#" title>5 Things That You Need To Know
                                     About Yencor</a>
                             </h2>
                             <p class="blog-text">
                                 Yencor is built around 5 core business principles. They are..
                             </p>
-                            <span class="posted-on">May 3rd, 2025, by <a href="#" title>Admin</a></span>
+                            <span class="posted-on">Feb 3rd, 2025, by <a href="#" title>Admin</a></span>
                         </div>
                     </div>
 

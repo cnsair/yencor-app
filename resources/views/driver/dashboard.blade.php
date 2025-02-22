@@ -79,19 +79,19 @@
                                         <h4>Overview</h4>
                                         <div class="counter-wrapper bg-gray small-div-item">
                                             <div class="single-counter-box">
-                                                <h2 class="counter-number">18</h2>
+                                                <h2 class="counter-number">0</h2>
                                                 <p class="counter-text">Today Rides</p>
                                             </div>
                                             <div class="single-counter-box">
-                                                <h2 class="counter-number">75445</h2>
+                                                <h2 class="counter-number">0</h2>
                                                 <p class="counter-text">Total Rides</p>
                                             </div>
                                             <div class="single-counter-box">
-                                                <h2 class="counter-number inline">150</h2>
+                                                <h2 class="counter-number inline">0</h2>
                                                 <p class="counter-text">Position</p>
                                             </div>
                                             <div class="single-counter-box">
-                                                <h2 class="counter-number">21785</h2>
+                                                <h2 class="counter-number">0 Cedis</h2>
                                                 <p class="counter-text">Total Earnings</p>
                                             </div>
                                         </div>
@@ -111,18 +111,11 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th scope="row">BMW 5 <small>“4976ART RU”</small></th>
-                                                        <td>$337.29</td>
-                                                        <td>May 11, 2018</td>
-                                                        <td>Lashibi</td>
-                                                        <td>Cirle</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Audi <small>“4876ORT AU”</small></th>
-                                                        <td>$856.56</td>
-                                                        <td>May 11, 2018</td>
-                                                        <td>Sakumono Estate</td>
-                                                        <td>Accra Market</td>
+                                                        <th scope="row">N/A <small></small></th>
+                                                        <td>N/A</td>
+                                                        <td>N/A</td>
+                                                        <td>N/A</td>
+                                                        <td>N/A</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -274,7 +267,7 @@
                                             </div>
                                         @empty
                                             <div class="container">
-                                                You've not registered any vehicle yet yet. Please click <a href="{{ route('driver.register-vehicle.create') }}">here</a> to register one.
+                                                You've not registered any vehicle yet. Please click <a href="{{ route('driver.register-vehicle.create') }}">here</a> to register one.
                                             </div>
                                         @endforelse
 
@@ -326,18 +319,11 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <th scope="row">BMW 5 <small>“4976ART RU”</small></th>
-                                                            <td>$337.29</td>
-                                                            <td>May 11, 2018</td>
-                                                            <td>Lashibi</td>
-                                                            <td>Circle</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Audi <small>“4876ORT AU”</small></th>
-                                                            <td>$856.56</td>
-                                                            <td>May 11, 2018</td>
-                                                            <td>Sakumono Estate</td>
-                                                            <td>Accra Market</td>
+                                                            <th scope="row">N/A <small></small></th>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

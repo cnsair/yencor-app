@@ -19,23 +19,26 @@
                     <div class="who-we-are-left-content">
                         <h2 class="who-we-are-title pb-4">About Us</h2>
                         <p class="justified-text">
-                            YENCOR is a smart public transportation app developed by AFRICA BLOCKCHAIN CONSORTIUM & DIGITAL ECONOMY LIMITED in collaboration with students from the Ghana Communication Technology University, Accra - Ghana. Just like popular ride-hailing apps, but tailored for public buses, YENCOR makes traveling easier by helping you find buses going your way — with a few extra features to improve your journey.
+                            YENCOR is an AI-powerd smart public transportation app developed by AFRICA BLOCKCHAIN CONSORTIUM & DIGITAL ECONOMY LIMITED in collaboration with students from the Ghana Communication Technology University, Accra - Ghana. Just like popular ride-hailing apps, but tailored for public buses, YENCOR makes traveling easier by helping you find buses going your way — with a few extra features to improve your journey. <br/>
+
+                            Unlike traditional ride-hailing apps, YENCOR is built specifically for public buses, offering real-time tracking, intelligent route planning, and cashless payments—all powered by AI to improve efficiency and enhance your travel experience.
                         </p>
                         
-                    <p class="justified-text">
-                        With YENCOR, you can:
-                    </p>
-                    <ul class="visible-bullet-points">
-                        <li>• Locate Available Buses: See nearby buses registered on the app and traveling towards your destination.</li>
-                        <li>• Pin Your Location: Indicate where you’re waiting, so drivers know you’re at the bus-stop.</li>
-                        <li>• Hop On and Go: Once you board and the bus moves from your location, your pin automatically sets your destination.</li>
-                        <li>• Pay Easily: No need to carry cash—just scan the bus’s QR code to pay instantly.</li>
-                    </ul>
+                        <p class="justified-text">
+                            How AI enhances your YENCOR experience:
+                        </p>
+                        <ul class="visible-bullet-points">
+                            <li>✅ Locate Available Buses: See nearby buses registered on the app and traveling towards your destination.</li>
+                            <li>✅ Pin Your Location: Indicate where you’re waiting, so drivers know you’re at the bus-stop.</li>
+                            <li>✅ Hop On and Go: Once you board and the bus moves from your location, your pin automatically sets your destination.</li>
+                            <li>✅ Pay Easily: No need to carry cash — just scan the bus’ QR code to pay instantly.</li>
+                            <li>✅ Personalized Travel Insights: App learns your commuting patterns and provides tailored recommendations.
+                            </li>
+                        </ul>
 
                         <p class="justified-text">
                             Whether you’re commuting to work, school, or running errands, YENCOR simplifies your journey by bridging the gap between passengers and drivers. YENCOR helps you plan better, avoid the guesswork and long waits at the bus stop. We are here to make public transportation more reliable, predictable, and stress-free.  <br>
                             Wherever you’re headed, YENCOR connects you to the right bus, fast and hassle-free. <br>
-                           
                            <p>
                              <b> YENCOR – Let's Go!  </b>
                            </p>
@@ -46,8 +49,8 @@
                 <div class="col-12 col-lg-6">
                     <div class="who-we-are-right-content">
                         <img class="who-we-are-blob" src="assets/assets/images/home/yellow-blob.svg" alt="Yellow blob">
-                        <img class="who-we-are-image-1" width="500" src="assets/assets/images/home/who-we-are-01.jpg" alt="Group of people">
-                        <img class="who-we-are-image-2" width="300" src="assets/assets/images/home/who-we-are-02.jpg" alt="Group of people">
+                        <img class="who-we-are-image-1" width="500" src="assets/assets/images/home/conference-meeting-1.png" alt="Group of people">
+                        <img class="who-we-are-image-2" width="300" src="assets/assets/images/home/office-1.webp" alt="Group of people">
                         <img class="who-we-are-blob-2" src="assets/assets/images/home/yellow-blob.svg" alt="Yellow blob">
                     </div>
                 </div>
@@ -56,7 +59,7 @@
             <!-- Dropdown Button Section -->
             <div class="dropdown-container">
                 <div class="dropdown-box">
-                    <span class="dropdown-text"><b> Read our full Mission and Vision statement </b></span>
+                    <span class="dropdown-text"><b> See our Mission and Vision statement </b></span>
                     <svg id="dropdownIcon" class="dropdown-icon" viewBox="0 0 24 24" title="Toggle dropdown">
                         <path fill="black" d="M10.9394 15.5607C11.5252 16.1464 12.4749 16.1464 13.0607 15.5607L17.0607 11.5607C17.6465 10.9749 17.6465 10.0251 17.0607 9.43934C16.4749 8.85355 15.5252 8.85355 14.9394 9.43934L12 12.3787L9.06069 9.43934C8.4749 8.85355 7.52515 8.85355 6.93937 9.43934C6.35358 10.0251 6.35358 10.9749 6.93937 11.5607L10.9394 15.5607Z"></path>
                     </svg>

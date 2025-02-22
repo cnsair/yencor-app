@@ -32,10 +32,10 @@
                 </div>
                 <div class="d-none d-lg-block col-lg-6" style="padding-left: 32%;">
                     <div class="header__upper--right">
-                        <a href="{{ route('register') }}" class="button p-0">
-                            <i class="far fa-user-astronaut"></i> Drive with us
+                        <!--register-->
+                        <a href="{{ route('book-ride') }}" class="button p-0">
+                            <i class="far fa-user-astronaut"></i> Book Ride
                         </a>
-                        
                     </div>
                 </div>
             </div>
@@ -69,10 +69,6 @@
                                     <a class="nav-link" href="{{ route('vehicle') }}">
                                         <i class="fas fa-taxi"></i>Our Vehicles
                                     </a>
-                                </li>
-                                <li class="nav-item {{ request()->routeIs('package') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('package') }}">
-                                        <i class="fas fa-cube"></i>Packages</a>
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('blog') }}">

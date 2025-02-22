@@ -11,13 +11,13 @@
                         enjoy a stress-free, efficient daily commute!
                     </p>
                     <div class="app-btns download-buttons">
-                        <a href="#" aria-label="download-apple-btn"><img src="assets/assets/images/download-1.webp" alt></a>
-                        <a href="#" aria-label="download-android-btn"><img src="assets/assets/images/download-2.webp" alt></a>
+                        <a href="#" aria-label="download-apple-btn"><img src="assets/assets/images/download-1.webp" alt="Android App coming soon"></a>
+                        <a href="#" aria-label="download-android-btn"><img src="assets/assets/images/download-2.webp" alt="iOS App comming soon"></a>
                     </div>
                 </div>
                 <div class="download-right-content">
                     <img class="download-blob" src="assets/assets/images/home/yellow-blob.svg" alt="Yellow blob">
-                    <img class="download-phone-img" src="assets/assets/images/home/mobile.jpg" alt="Mobile phone">
+                    <img height="350" class="download-phone-img" src="assets/assets/images/home/phone2.png" alt="Mobile phone">
                 </div>
             </div>
         </div>
