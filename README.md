@@ -6,7 +6,7 @@
 
 ## About Yencor
 
- YENCOR is an AI-powerd smart public transportation app developed by AFRICA BLOCKCHAIN CONSORTIUM & DIGITAL ECONOMY LIMITED in collaboration with students from the Ghana Communication Technology University, Accra - Ghana. Just like popular ride-hailing apps, but tailored for public buses, YENCOR makes traveling easier by helping you find buses going your way — with a few extra features to improve your journey.
+YENCOR is an AI-powerd smart public transportation app developed by AFRICA BLOCKCHAIN CONSORTIUM & DIGITAL ECONOMY LIMITED in collaboration with students from the Ghana Communication Technology University, Accra - Ghana. Just like popular ride-hailing apps, but tailored for public buses, YENCOR makes traveling easier by helping you find buses going your way — with a few extra features to improve your journey.
 Unlike traditional ride-hailing apps, YENCOR is built specifically for public buses, offering real-time tracking, intelligent route planning, and cashless payments—all powered by AI to improve efficiency and enhance your travel experience.
 
 How AI enhances your YENCOR experience:

@@ -160,7 +160,7 @@
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-success">
-                                                                3696
+                                                                N/A
                                                             </div>
                                                         </div>
                                                     </div>
@@ -177,7 +177,7 @@
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-primary">
-                                                                $12.6k
+                                                                $0
                                                             </div>
                                                         </div>
                                                     </div>
@@ -198,7 +198,7 @@
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-success">
-                                                                45,9%
+                                                                N/A
                                                             </div>
                                                         </div>
                                                     </div>
@@ -215,7 +215,7 @@
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-danger">
-                                                                $3M
+                                                                $0
                                                             </div>
                                                         </div>
                                                     </div>
@@ -236,7 +236,7 @@
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-success">
-                                                                1896
+                                                                N/A
                                                             </div>
                                                         </div>
                                                     </div>
@@ -253,7 +253,7 @@
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-primary">
-                                                                $12.6k
+                                                                N/A
                                                             </div>
                                                         </div>
                                                     </div>
