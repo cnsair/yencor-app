@@ -21,7 +21,7 @@
                 <div class="single-contact-info text-center">
                     <img src="assets/assets/images/icon/contact_info.webp" alt="icon">
                     <h4>Address</h4>
-                    <p>Address : akumono, Tema, Accra, Ghana.</p>
+                    <p>Address : Sakumono, Tema, Accra, Ghana.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">

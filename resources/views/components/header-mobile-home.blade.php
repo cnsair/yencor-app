@@ -2,7 +2,7 @@
     <div class="rep-header">
         <div class="logo">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" height="100" alt="Site Logo">
+                <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" height="80" alt="Site Logo">
             </a>
         </div>
         <a href="#" title class="close-menu"><i class="lni lni-close"></i></a>

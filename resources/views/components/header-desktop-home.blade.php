@@ -7,8 +7,8 @@
                         <div class="d-none d-lg-block logo">
                             <a href="{{ route('home') }}"><img height="60" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo"></a>
                         </div>
-                        <div class="d-block d-lg-none logo w-49px">
-                            <a href="{{ route('home') }}"><img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo"></a>
+                        <div class="d-block d-lg-none logo">
+                            <a href="{{ route('home') }}"><img width="100" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" alt="Site Logo"></a>
                         </div>
                         <!-- <div class="search-bar">
                             <form class="form">

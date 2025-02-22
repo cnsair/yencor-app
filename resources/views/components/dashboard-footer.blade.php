@@ -32,8 +32,8 @@
                 </div>
                 <div class="col-lg-6">
                     <ul class="social-nav">
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
+                        <li><a href="{{ route('terms.show') }}">Privacy</a></li>
+                        <li><a href="{{ route('policy.show') }}">Terms</a></li>
                     </ul>
                 </div>
             </div>
