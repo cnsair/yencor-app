@@ -4,6 +4,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap" async defer></script>
 
     <script>
+        
+        // document.addEventListener('livewire:load', function () {
+        //     Livewire.on('refreshMap', function () {
+        //         initMap();
+        //     });
+
+        //     initMap(); // Ensure it initializes on first load
+        // });
+
          document.addEventListener("DOMContentLoaded", function () {
             initMap();
         });
@@ -19,7 +28,7 @@
 
                         var map = new google.maps.Map(document.getElementById('map'), {
                             center: userLocation,
-                            zoom: 15
+                            zoom: 18
                         });
 
                         new google.maps.Marker({

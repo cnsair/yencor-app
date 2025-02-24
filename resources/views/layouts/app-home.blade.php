@@ -28,6 +28,9 @@
     <x-footer></x-footer>
 
     <x-js-scripts></x-js-scripts>
+    
+    @stack('scripts')
+
 </body>
 
 </html>

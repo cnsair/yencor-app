@@ -50,7 +50,7 @@
                                     </div>
                                 </nav>
                                 <div class="tab-content">
-                                    <div class="tab-pane fade" id="nav-ride" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="nav-ride" role="tabpanel"
                                         aria-labelledby="nav-ride-tab">
 
                                         <x-validation-errors class="mb-4" />
@@ -92,12 +92,12 @@
                                                 </div>
                                    
                                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                                                        <div class="col-12 form-group mt-3">
-                                                            <input type="checkbox" id="agree" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
-                                                            <label for="agree">I agree to the
-                                                                <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
-                                                                <a href="{{ route('policy.show') }}">Privacy Policy</a></label>
-                                                        </div>
+                                                    <div class="col-12 form-group mt-3">
+                                                        <input type="checkbox" id="agree" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
+                                                        <label for="agree">I agree to the
+                                                            <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
+                                                            <a href="{{ route('policy.show') }}">Privacy Policy</a></label>
+                                                    </div>
                                                 @endif
                                                 
                                                 <div class="form-btn col-12">
@@ -110,7 +110,7 @@
                                         </form>
                                     </div>
 
-                                    <div class="tab-pane fade show active" id="nav-drive" role="tabpanel"
+                                    <div class="tab-pane fade" id="nav-drive" role="tabpanel"
                                         aria-labelledby="nav-drive-tab">
 
                                         <x-validation-errors class="mb-4" />
@@ -155,12 +155,12 @@
                                                 </div>
                                    
                                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                                                        <div class="col-12 form-group mt-3">
-                                                            <input type="checkbox" id="agree2" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
-                                                            <label for="agree2">I agree to the
-                                                                <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
-                                                                <a href="{{ route('policy.show') }}">Privacy Policy</a></label>
-                                                        </div>
+                                                    <div class="col-12 form-group mt-3">
+                                                        <input type="checkbox" id="agree2" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
+                                                        <label for="agree2">I agree to the
+                                                            <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
+                                                            <a href="{{ route('policy.show') }}">Privacy Policy</a></label>
+                                                    </div>
                                                 @endif
                                    
                                                 <div class="form-btn col-12">

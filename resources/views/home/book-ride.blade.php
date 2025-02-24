@@ -37,10 +37,7 @@
                                         <label class="form-check-label" for="cash-pay">Cash</label>
                                     </div>
                                     <div class="form-check form-check-inline" data-value="option2">
-                                        <label class="form-check-label" for="banking-pay">MoMo</label>
-                                    </div>
-                                    <div class="form-check form-check-inline" data-value="option3">
-                                        <label class="form-check-label" for="card-pay">Bank</label>
+                                        <label class="form-check-label" for="banking-pay">Debit/Credit Card</label>
                                     </div>
                                     <div class="form-check form-check-inline" data-value="option3">
                                         <label class="form-check-label" for="card-pay">Crypto</label>
@@ -74,11 +71,9 @@
                     <div class="ride-map-area">
                         <div class="mapouter">
                             <div class="gmap_canvas">
-                                <!-- <iframe id="gmap_canvas"
-                                    src="https://maps.google.com/maps?q=JVF2+Q4V%20Spintex%20Road,%20Accra,%20Spintex%20Rd,%20Accra&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> -->
 
-                                    <livewire:maps />
+                                <livewire:maps />
+                                
                             </div>
                         </div>
                     </div>
