@@ -1,161 +1,265 @@
-@extends('layouts.app-auth')
+Terms & Conditions
 
-@section('content')
+Effective Date: 20/02/2025
 
-    <div class="div-padding p-t-0 signup-div user-access-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3 text-center">
-                    <h1 class="h3 mb-3 fw-normal">Please Register</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="account-access sign-up">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#rider" class="active" aria-controls="rider" role="tab" data-toggle="tab">
-                                    Take to Ride
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#driver" aria-controls="driver" role="tab" data-toggle="tab">
-                                    Apply to Drive
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="rider">
+1. Introduction
 
-                                <x-validation-errors class="mb-4" />
+Welcome to Yenkor App (“the App”). These Terms & Conditions (“Terms”) govern your use of our ride-sharing services in Ghana. By accessing or using our App, you agree to comply with and be bound by these Terms. If you do not agree, please refrain from using the App.
 
-                                <form method="POST" action="{{ route('register') }}" class="user-access-form"
-                                    onsubmit="return registerF(this);">
-                                    @csrf
+2. Definitions
 
-                                    <div class="row">
-                                        <input type="number" class="form-control" name="role" 
-                                            id="role" hidden value="0" required>
+"Company" refers to [Company Name], the owner and operator of the App.
 
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" name="firstname"
-                                                    id="firstName" placeholder="First Name" :value="old('firstname')" required autofocus autocomplete="name">
-                                                <label for="firstName">First Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" name="lastname"
-                                                        id="lastName" placeholder="Last Name" :value="old('lastname')" required autocomplete="name">
-                                                <label for="lastName">Last Name</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control" name="phone" id="phone"
-                                            placeholder="Phone Number (Optional)" :value="old('phone')">
-                                        <label for="phone">Phone Number</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Email Address" :value="old('email')" required autocomplete="email">
-                                        <label for="email">Email</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" name="password"
-                                            id="password" placeholder="Password">
-                                        <label for="password">Password</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" name="password.confirmation"
-                                            id="passwordConfirm" placeholder="Confirm Password">
-                                        <label for="passwordConfirm">Password</label>
-                                    </div>
-                                    <!-- <div class="form-floating">
-                                        <input type="checkbox" id="agree" name="terms">
-                                        <label for="agree">I agree to the
-                                            <a href="#">Terms and Conditions</a> and
-                                            <a href="#">Privacy Policy</a>
-                                        </label>
-                                    </div> -->
-                                    <button type="submit" name="register" class="w-100 btn btn-lg btn-primary">Register</button>
-                                </form>
-                                <p class="acclink">Already have an account?
-                                    <a href="{{ route('login') }}"> <b>Sign in</b>
-                                        <i class="icofont">double_right</i>
-                                    </a>
-                                </p>
-                            </div>
+"User" refers to any person using the App, including drivers and passengers.
 
-                            <div role="tabpanel" class="tab-pane" id="driver">
+"Driver" refers to individuals providing transportation services through the App.
 
-                                <x-validation-errors class="mb-4" />
+"Passenger" refers to individuals requesting rides through the App.
 
-                                <form method="POST" action="{{ route('register') }}" class="user-access-form"
-                                    onsubmit="return registerF(this);">
-                                    @csrf
+"Services" refers to ride-sharing and related services offered by the App.
 
-                                    <div class="row">
-                                        <input type="number" class="form-control" name="role"
-                                            id="role" hidden value="1" required>
 
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" name="firstname"
-                                                    id="firstName2" placeholder="First Name" :value="old('firstname')" required autofocus autocomplete="name">
-                                                <label for="firstName2">First Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" name="lastname"
-                                                    id="lastName2" placeholder="Last Name" :value="old('lastname')" required autocomplete="name">
-                                                <label for="lastName2">Last Name</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" name="phone" id="number2"
-                                            placeholder="Phone Number" required :value="old('phone')">
-                                        <label for="number2">Phone Number</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" name="email" id="email2"
-                                            placeholder="Email Address" :value="old('email')" required autocomplete="email">
-                                        <label for="email2">Email</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" name="password"
-                                            id="password2" placeholder="Password" required>
-                                        <label for="password2">Password</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" name="password.confirmation"
-                                            id="passwordConfirm2" placeholder="Confirm Password" required>
-                                        <label for="passwordConfirm2">Confirm Password</label>
-                                    </div>
-                                    <!-- <div class="form-floating">
-                                        <input type="checkbox" id="agree" name="terms" {{ old('terms') == 1 ? 'checked' : '' }}>
-                                        <label for="agree">I agree to the
-                                            <a href="#">Terms and Conditions</a> and
-                                            <a href="#">Privacy Policy</a>
-                                        </label>
-                                    </div> -->
-                                    <button type="submit" name="register" class="w-100 btn btn-lg btn-primary">Register</button>
-                                </form>
+3. Eligibility
 
-                                <p class="acclink">Already have an account?
-                                    <a href="{{ route('login') }}"><b>Sign in</b>
-                                        <i class="icofont">double_right</i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-@endsection
+To use our Services, you must:
+
+Be at least 18 years old.
+
+Possess a valid government-issued ID (for Passengers).
+
+Hold a valid Ghanaian driver’s license (for Drivers).
+
+Own or have legal authorization to use a vehicle (for Drivers).
+
+Accept these Terms and our Privacy Policy.
+
+
+4. User Accounts & Registration
+
+Users must provide accurate, complete, and updated information during registration.
+
+Users are responsible for maintaining the security of their accounts.
+
+The Company reserves the right to suspend or terminate accounts if fraudulent or misleading information is provided.
+
+
+5. Booking & Ride Services
+
+Passengers can request rides through the App.
+
+Drivers have the discretion to accept or reject ride requests.
+
+Fares are estimated based on distance, time, and other factors, with possible additional charges for tolls, waiting time, or cancellations.
+
+Passengers must verify the driver's identity and vehicle before boarding.
+
+
+6. Payments & Fees
+
+Payments are processed via [Payment Methods].
+
+The Company charges a commission on each ride completed.
+
+Users are responsible for ensuring sufficient funds are available for transactions.
+
+No refunds will be issued once a ride is completed, except in exceptional circumstances.
+
+
+7. Cancellations & Refunds
+
+Passengers may cancel a ride request before a driver is assigned without charge.
+
+Cancellation fees may apply if a ride is canceled after a driver has accepted the request.
+
+Refunds are only issued in cases of service failure or double charges.
+
+
+8. Driver Obligations
+
+Maintain valid vehicle documentation (insurance, roadworthiness certificate, etc.).
+
+Follow all traffic laws and safety regulations.
+
+Treat Passengers with respect and maintain professional behavior.
+
+Avoid discriminatory or illegal conduct while providing services.
+
+
+9. Passenger Obligations
+
+Use the App responsibly and provide accurate pickup/drop-off locations.
+
+Treat Drivers with respect and refrain from abusive or harmful behavior.
+
+Do not engage in any illegal activity while using the Services.
+
+
+10. Safety & Liability
+
+The Company is not liable for any accidents, injuries, or damages occurring during rides.
+
+Drivers are independent contractors, not employees of the Company.
+
+Users must report any safety concerns or misconduct through the App's support feature.
+
+
+11. Account Suspension & Termination
+
+The Company may suspend or terminate accounts for violations, including but not limited to:
+
+Fraudulent activities.
+
+Abusive behavior.
+
+Violation of Ghanaian laws.
+
+Repeated cancellations or non-compliance with the Terms.
+
+
+12. Dispute Resolution
+
+Users must report disputes to customer support within 48 hours.
+
+The Company will attempt to resolve disputes amicably.
+
+Legal disputes will be handled under Ghanaian law.
+
+
+13. Modifications to the Terms
+
+We may update these Terms periodically. Continued use of the App after updates constitutes acceptance of the revised Terms.
+
+14. Contact Information
+
+For inquiries or support, contact us at:
+[Company Email] | [Company Phone] | [Company Address]
+
+
+---
+
+Privacy Policy
+
+Effective Date: [Insert Date]
+
+1. Introduction
+
+[App Name] ("we," "our," "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our ride-sharing services in Ghana.
+
+2. Information We Collect
+
+a. Personal Information
+
+Name
+
+Email address
+
+Phone number
+
+Payment information
+
+Profile picture (optional)
+
+Government-issued ID (for Drivers)
+
+
+b. Location Data
+
+We collect real-time location data to facilitate rides.
+
+Location tracking is enabled when the App is in use.
+
+
+c. Device Information
+
+Device model, OS version, IP address.
+
+App performance and diagnostic data.
+
+
+d. Transaction Data
+
+Ride history, fare details, payment records.
+
+
+3. How We Use Your Information
+
+Facilitate ride-booking and payment processing.
+
+Improve customer support and service quality.
+
+Ensure safety, fraud prevention, and compliance with Ghanaian regulations.
+
+Conduct analytics and improve App performance.
+
+
+4. Sharing Your Information
+
+With Drivers (for ride fulfillment).
+
+With payment processors (to handle transactions).
+
+With law enforcement (if legally required).
+
+With third-party service providers assisting our operations.
+
+
+5. Data Storage & Security
+
+Data is stored securely on our servers using encryption and access controls.
+
+We implement measures to prevent unauthorized access, but we cannot guarantee absolute security.
+
+
+6. Data Retention
+
+We retain user data as long as necessary for service delivery, legal compliance, and dispute resolution.
+
+Users can request account deletion, but certain data may be retained for legal reasons.
+
+
+7. Cookies & Tracking Technologies
+
+We use cookies to enhance user experience and collect analytical data.
+
+Users can manage cookie preferences via their browser settings.
+
+
+8. Third-Party Services
+
+We integrate with third-party services (e.g., Google Maps, payment gateways).
+
+These services have their own privacy policies, and we are not responsible for their data practices.
+
+
+9. Your Rights & Choices
+
+Access & Correction: Users can update their information in the App.
+
+Opt-out: Users can opt out of marketing communications.
+
+Data Deletion: Users can request account deletion via customer support.
+
+
+10. Children’s Privacy
+
+Our Services are not intended for children under 18.
+
+We do not knowingly collect personal data from minors.
+
+
+11. Changes to this Privacy Policy
+
+We may update this policy periodically.
+
+Continued use of the App after changes means acceptance of the revised policy.
+
+
+12. Contact Us
+
+For privacy-related inquiries, contact:
+[Company Email] | [Company Phone] | [Company Address]
+
+
+---
+
+These documents ensure legal protection and compliance with Ghanaian regulations while setting clear guidelines for users. Let me know if you need adjustments based on your business model!
