@@ -82,7 +82,7 @@
                                             </label>
                                         </div>
                                     @endif
-                                    <button type="submit" name="register" class="w-100 btn btn-lg btn-primary">Register</button>
+                                    <button type="submit" name="register" class="w-100 btn btn-lg btn-dark">Register</button>
                                 </form>
                                 <p class="acclink">Already have an account?
                                     <a href="{{ route('login') }}"> 
@@ -149,7 +149,7 @@
                                         </div>
                                     @endif
 
-                                    <button type="submit" name="register" class="w-100 btn btn-lg btn-primary">Register</button>
+                                    <button type="submit" name="register" class="w-100 btn btn-lg btn-dark">Register</button>
                                 </form>
 
                                 <p class="acclink">Already have an account?

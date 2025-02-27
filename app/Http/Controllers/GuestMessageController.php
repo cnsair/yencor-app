@@ -38,10 +38,14 @@ class GuestMessageController extends Controller
     // Read message by admin
     public function show(GuestMessage $message)
     {
-        // $message = GuestMessage::findOrFail($message);
+        // Check if message exists
+       if (!$message) {
+           return redirect()->back()->with('status', 'error');
+       }
 
-        // Toggle is_read to 1 when message is opened
-        $message->update(['is_read' => 1]);
+        // Toggle is_read read->1
+        $message->is_read = 1;
+        $message->update();
 
         return view('admin.read-guest-msg', compact('message'));
     }

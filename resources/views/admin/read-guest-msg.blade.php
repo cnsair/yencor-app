@@ -18,27 +18,22 @@
                        
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                        
                         <div class="card mb-3">
-                           
-                            @foreach ($message as $msg)
-                                <div class="card-header-tab card-header">
-                                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
-                                        <i class="metismenu-icon pe-7s-users mr-3 text-muted opacity-6"> </i>
-                                        <span>{{ $msg->name }}</span>
-                                        <span class="px-4 fw-normal">
-                                            <small>{{ $msg->created_at ." (". $msg->created_at->diffForHumans() .")" }}</small>
-                                        </span>
-                                        <span><small>{{ $msg->email }}</small></span>
-                                    </div>
+                            <div class="card-header-tab card-header">
+                                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                    <i class="metismenu-icon pe-7s-users mr-3 text-muted opacity-6"> </i>
+                                    <span>{{ $message->name }}</span>
+                                    <span class="px-4 fw-normal">
+                                        <small>{{ $message->created_at ." (". $message->created_at->diffForHumans() .")" }}</small>
+                                    </span>
+                                    <span><small>{{ $message->email }}</small></span>
                                 </div>
+                            </div>
 
-                                <div class="card-body">
-                                    {{ $msg->message }}
-                                </div>
-                            @endforeach
+                            <div class="card-body">
+                                {{ htmlspecialchars($message->message) }}
+                            </div>
                         </div>
-                    
                     </div>
                     <!-- /.card-body -->
                 </div>
