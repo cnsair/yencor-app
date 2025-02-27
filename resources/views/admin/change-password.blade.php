@@ -20,12 +20,12 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- /.col-sm-12 sub-header -->
 
                         <!-- right column -->
                         <div class="col-md-6">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Change Password</h5>
 
                                     <x-validation-errors class="mb-4" />
 
@@ -43,34 +43,32 @@
                                         @csrf
                                         @method('patch')
                                         
-                                        <div class="card ">
-                                            <div class="card-body ">
-                                                <div class="form-group has-label">
-                                                    <label>Current Password <star class="star">*</star></label>
-                                                    <input name="current_password" type="password" class="form-control" required />
-                                                    <x-input-error for="current_password" class="mt-2" />
-                                                </div>
-
-                                                <div class="form-group has-label">
-                                                    <label>New Password <star class="star">*</star></label>
-                                                    <input name="password" type="password" class="form-control" required />
-                                                    <x-input-error for="password" class="mt-2" />
-                                                </div>
-
-                                                <div class="form-group has-label">
-                                                    <label>Confirm Password <star class="star">*</star></label>
-                                                    <input name="password_confirmation" type="password" class="form-control" required />
-                                                    <x-input-error for="password_confirmation" class="mt-2" />
-                                                </div>
-
-                                                <div class="card-category form-category">
-                                                    <star class="star">*</star> Required fields
-                                                </div>
-                                            </div>
-                                            <div class="card-footer text-center">    
-                                                <input style="color: #fff" type="submit" class="mb-2 mr-2 btn-hover-shine btn btn-shadow btn-focus btn-block" value="UPDATE PASSWORD">
-                                            </div>
+                                        <div class="form-group has-label">
+                                            <label>Current Password <star class="star">*</star></label>
+                                            <input name="current_password" type="password" class="form-control" required />
+                                            <x-input-error for="current_password" class="mt-2" />
                                         </div>
+
+                                        <div class="form-group has-label">
+                                            <label>New Password <star class="star">*</star></label>
+                                            <input name="password" type="password" class="form-control" required />
+                                            <x-input-error for="password" class="mt-2" />
+                                        </div>
+
+                                        <div class="form-group has-label">
+                                            <label>Confirm Password <star class="star">*</star></label>
+                                            <input name="password_confirmation" type="password" class="form-control" required />
+                                            <x-input-error for="password_confirmation" class="mt-2" />
+                                        </div>
+
+                                        <div class="card-category form-category">
+                                            <star class="star">*</star> Required fields
+                                        </div>
+                                           
+                                        <div class="card-footer text-center">    
+                                            <input style="color: #fff" type="submit" class="mb-2 mr-2 btn-hover-shine btn btn-shadow btn-focus btn-block" value="UPDATE PASSWORD">
+                                        </div>
+                                      
                                     </form>
                                     
                                 
@@ -89,7 +87,6 @@
 
         </div>
     </div>
-
 </div>
 
 @endsection

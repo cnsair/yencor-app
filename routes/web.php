@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\VehicleController;
 use App\Models\User;
+use App\Models\GuestMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
 
@@ -46,23 +47,16 @@ Route::middleware('guest')->group(function () {
         return view('home.package');
     })->name('package');
 
-    Route::get('/contact-us', function () {
-        return view('home.contact-us');
-    })->name('contact');
-
     Route::get('/book-ride', function () {
         return view('home.book-ride');
     })->name('book-ride');
 
-    Route::post('/contact-us', [GuestMessageController::class, 'store'])
-    ->name('contact-us.store');
+    Route::get('/contact-us', [GuestMessageController::class, 'create'])
+    ->name('contact');
 
-    // Route::get('/terms', function () {
-    //     return view('markdown.terms');
-    // })->name('terms');
-    Route::get('/user-location', function () {
-        return view('livewire.maps');
-    });
+    Route::post('/contact-us', [GuestMessageController::class, 'store'])
+    ->name('contact.store');
+
 });
 
 
@@ -192,9 +186,22 @@ Route::group(['middleware' => 'auth'], function() {
                     Route::get('/audit-trail', [AuditTrailController::class, 'index'])
                         ->name('audit-trail.index');
 
-                    // guest messages
-                    Route::get('/admin/guest-messages', [GuestMessageController::class, 'index'])
-                        ->name('guest-messages');
+                    // show all guest messages
+                    Route::get('/guest-msg', [GuestMessageController::class, 'index'])
+                        ->name('guest-msg.index');
+
+                    // read guest message
+                    Route::get('/{message}/read-guest-msg', [GuestMessageController::class, 'show'])
+                        ->name('guest-msg.show');
+
+                    // delete guest message
+                    Route::delete('/{message}/guest-msg', [GuestMessageController::class, 'destroy'])
+                        ->name('guest-msg.destroy');
+
+                    //Toggle betweeen Read and Not-Read
+                    Route::put('/guest-msg/{message}/toggle', [GuestMessageController::class, 'toggleRead'])
+                        ->name('guest-msg.toggle');
+
                 });
 
             });

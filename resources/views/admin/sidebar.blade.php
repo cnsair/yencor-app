@@ -41,7 +41,7 @@
                             <i class="metismenu-icon pe-7s-news-paper"></i>
                             Blog
                         </a>
-                        <a href="#index-2.html">
+                        <a href="{{ route('admin.guest-msg.index') }}">
                             <i class="metismenu-icon pe-7s-mail"></i>
                             Feedback
                         </a>

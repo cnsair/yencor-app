@@ -14,4 +14,9 @@ class GuestMessage extends Model
         'email', 
         'message'
     ];
+    
+    protected $casts = [
+        'is_read' => 'boolean',
+    ];
+    
 }

@@ -13,8 +13,8 @@ class ProfileController extends Controller
     {
         // Validate the request
         $request->validate([
-            'firstname' => ['required', 'string', 'regex:/^\S*$/u', 'max:30'],
-            'lastname' => ['required', 'string', 'regex:/^\S*$/u', 'max:30'],
+            'firstname' => ['required', 'string', 'regex:/^[\p{L}\p{N}@_.-]*$/u', 'max:30'],
+            'lastname' => ['required', 'string', 'regex:/^[\p{L}\p{N}@_.-]*$/u', 'max:30'],
             'email' => ['required', 'email', 'max:100', Rule::unique('users')->ignore(Auth::user())],
             'phone' => ['required', 'string', 'regex:/^\S*$/u', 'max:25', Rule::unique('users')->ignore(Auth::user())],
             'gender' => ['nullable','string', 'max:20'],
