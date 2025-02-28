@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class VehicleController extends Controller
@@ -15,27 +14,6 @@ class VehicleController extends Controller
     public function create()
     {
         return view('driver.register-vehicle');
-    }
-
-    /**
-     * Display all uploaded vehicles
-     */
-    public function showAll()
-    {
-        $vehicle_data = Vehicle::where('user_id', Auth::user()->id)
-                                    ->orderBy('id', 'desc')
-                                    ->limit(5)->get();    
-
-        return view('driver.dashboard')
-            ->with('vehicle_data', $vehicle_data);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Vehicle $vehicle)
-    {
-        //
     }
 
     /**
