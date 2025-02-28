@@ -10,6 +10,7 @@ use App\Http\Controllers\Driver\DriverController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Models\User;
 use App\Models\GuestMessage;
@@ -201,6 +202,10 @@ Route::group(['middleware' => 'auth'], function() {
                     //Toggle betweeen Read and Not-Read
                     Route::put('/guest-msg/{message}/toggle', [GuestMessageController::class, 'toggleRead'])
                         ->name('guest-msg.toggle');
+
+                    // Route to handle updating user status (ban, suspend, deactivate, activate)
+                    Route::post('/admin/users/{id}/update-status', [UserController::class, 'updateStatus'])
+                    ->name('admin.users.update-status');
 
                 });
 
