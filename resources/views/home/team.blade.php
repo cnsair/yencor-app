@@ -11,19 +11,16 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-team-member">
                         <div class="member-img">
-                            
                             @php
                                 $file = $team->profile_photo_path;
                                 $photo_path  = asset('storage/' . $file);
                             @endphp
 
                             @if ($file)
-                                <img class="me-3" src="{{ asset($photo_path) }}" alt="partner-img" alt="ProfilePicture">
+                                <img style="width: 100%; height: 18rem; object-fit: cover;" class="me-3" src="{{ asset($photo_path) }}" alt="partner-img" alt="ProfilePicture">
                             @else
                                 <img class="me-3" src="{{ asset('assets/assets/images/avatar.png') }}" alt="ProfilePicture">
                             @endif
-
-                            <!-- <img src="{{ asset('assets/assets/images/avatar.png') }}" alt> -->
                         </div>
                         <div class="member-info">
                             <h4 class="member-name mb-1">{{ $team->firstname ." ". $team->lastname ?? "N/A" }}</h4>
@@ -34,7 +31,7 @@
                 </div>
                 
             @empty
-                <p>Nothing to show now!</p>
+                <p>Ooops.. Nothing here now!</p>
             @endforelse
            
         </div>
