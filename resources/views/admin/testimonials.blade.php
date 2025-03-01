@@ -1,4 +1,5 @@
-@extends('layouts.admin')
+@extends('layouts.app-admin')
+
 
 @section('content')
 <div style="max-width: 800px; margin: 20px auto; padding: 20px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
