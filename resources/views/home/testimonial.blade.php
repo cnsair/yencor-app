@@ -5,12 +5,13 @@
                     <div class="col-md-12 testimo-slider testimonial-carousel owl-carousel" id="testimonial-test">
                         <div class="testimonial-slide-v-2 testimonial-slide">
                             <p>
-                                Original, creative and with an innate understanding of
-                                their customer’s need. I know this because I have worked with them.
+                                “Originally, creative and with an innate understanding of
+                                their customer’s need. The team at Yencor are always a pleasure
+                                to work with. Recommended.”
                             </p>
                             <div class="thmb-row">
                                 <div class="thmb-img">
-                                    <!-- <img src="assets/assets/images/client-1.webp" alt> -->
+                                    <img src="assets/assets/images/client-1.webp" alt>
                                 </div>
                                 <div class="thmb-info">
                                     <h3>Bobby Hanesto</h3>
@@ -21,11 +22,11 @@
 
                         <div class="testimonial-slide-v-2 testimonial-slide">
                             <p>
-                                This is should be my one stop app for anything transport soon
+                                This is my one stop app for anything transport
                             </p>
                             <div class="thmb-row">
                                 <div class="thmb-img">
-                                    <!-- <img src="assets/assets/images/client-3.webp" alt> -->
+                                    <img src="assets/assets/images/client-3.webp" alt>
                                 </div>
                                 <div class="thmb-info">
                                     <h3>Chubby Mike</h3>
