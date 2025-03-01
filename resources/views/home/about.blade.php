@@ -7,7 +7,7 @@
             <h1 class="page-title mb-0">About Us</h1>
             <ol class="breadcrumb">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li>About</li>
+                <li>About Us</li>
             </ol>
         </div>
     </div>
@@ -67,14 +67,13 @@
                 <div id="dropdownContent" class="dropdown-content" style="display: none;">
                     <div class="dropdown-text-box">
                         <p class="dropdown-text-content">
-                        <h2>  Mission  </h2>
-                        At YENCOR, our mission is to make public transportation more accessible, efficient, and stress-free. We aim to connect riders and bus drivers seamlessly, helping people find buses traveling to their destination, board with ease, and pay digitally. With YENCOR, public transport becomes simpler and more reliable for everyone.
+                            <h2>  Mission  </h2>
+                            At YENCOR, our mission is to make public transportation more accessible, efficient, and stress-free. We aim to connect riders and bus drivers seamlessly, helping people find buses traveling to their destination, board with ease, and pay digitally. With YENCOR, public transport becomes simpler and more reliable for everyone.
                         </p>
                         <p class="dropdown-text-content2">
-                            
-                       <h2> Vision </h2>
-                        Our vision is to revolutionize public transportation by providing a smarter way for people to travel.
-                        We aspire to create a world where waiting at bus stops becomes a thing of the past, every ride is convenient, and public buses are just a tap away. YENCOR strives to be the leading platform that transforms the way people move, making public transit easy, predictable, and enjoyable for all.
+                            <h2> Vision </h2>
+                            Our vision is to revolutionize public transportation by providing a smarter way for people to travel.
+                            We aspire to create a world where waiting at bus stops becomes a thing of the past, every ride is convenient, and public buses are just a tap away. YENCOR strives to be the leading platform that transforms the way people move, making public transit easy, predictable, and enjoyable for all.
                         </p>
                     </div>
                 </div>

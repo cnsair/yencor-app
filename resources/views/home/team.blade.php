@@ -6,18 +6,36 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
-                <div class="single-team-member">
-                    <div class="member-img">
-                        <img src="{{ asset('assets/assets/images/avatar.png') }}" alt>
-                    </div>
-                    <div class="member-info">
-                        <h4 class="member-name mb-1">Leonard Nweje</h4>
-                        <p class="theme-color mb-2">Founder and CEO</p>
-                        <p class="mb-0">A visionist. A father. A husband.</p>
+            @forelse ($team_data as $team)
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-team-member">
+                        <div class="member-img">
+                            
+                            @php
+                                $file = $team->profile_photo_path;
+                                $photo_path  = asset('storage/' . $file);
+                            @endphp
+
+                            @if ($file)
+                                <img class="me-3" src="{{ asset($photo_path) }}" alt="partner-img" alt="ProfilePicture">
+                            @else
+                                <img class="me-3" src="{{ asset('assets/assets/images/avatar.png') }}" alt="ProfilePicture">
+                            @endif
+
+                            <!-- <img src="{{ asset('assets/assets/images/avatar.png') }}" alt> -->
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name mb-1">{{ $team->firstname ." ". $team->lastname ?? "N/A" }}</h4>
+                            <p class="theme-color mb-2">{{ $team->admin_role ?? "N/A" }}</p>
+                            <p class="mb-0">{{ Str::limit($team->biography, 100)  ?? "N/A" }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+            @empty
+                <p>Nothing to show now!</p>
+            @endforelse
            
         </div>
     </div>

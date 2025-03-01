@@ -10,6 +10,7 @@ use App\Http\Controllers\Driver\DriverController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\TeamRendererController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Models\User;
@@ -28,9 +29,12 @@ Route::middleware('guest')->group(function () {
         return view('home.home');
     })->name('home');
 
-    Route::get('/about', function () {
-        return view('home.about');
-    })->name('about');
+    // Route::get('/about', function () {
+    //     return view('home.about');
+    // })->name('about');
+
+    Route::get('/about', [TeamRendererController::class, 'index'])
+    ->name('about');
 
     Route::get('/blog', function () {
         return view('home.blog');

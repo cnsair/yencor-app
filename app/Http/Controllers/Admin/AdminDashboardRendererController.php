@@ -23,9 +23,9 @@ class AdminDashboardRendererController extends \App\Http\Controllers\Controller
         $uniqueClicks = $this->auditTrailService->getUniqueClicks();
         $auditTrails = $this->auditTrailService->getAuditTrails();
 
-        $user_data = User::query()->orderBy('id', 'desc')->limit(100)->get();
+        $userData = User::query()->orderBy('id', 'desc')->limit(100)->get();
 
-        return view('admin.dashboard', compact('totalClicks', 'registeredUsers', 'uniqueClicks', 'auditTrails', 'user_data'));
+        return view('admin.dashboard', compact('totalClicks', 'registeredUsers', 'uniqueClicks', 'auditTrails', 'userData'));
 
         // return view('admin.dashboard')
         //     ->with('user_data', $user_data)->with('totalClicks', $totalClicks)

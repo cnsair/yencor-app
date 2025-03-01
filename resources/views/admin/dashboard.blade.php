@@ -93,7 +93,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ( $user_data as $user )
+                                    @foreach ( $userData as $user )
                                         <tr>
                                             <td>
                                                 {{ $user->firstname ." ". $user->lastname }} 

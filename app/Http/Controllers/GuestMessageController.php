@@ -53,7 +53,6 @@ class GuestMessageController extends Controller
     // Delete message by admin
     public function destroy($id)
     {   
-        // dd($message);
         $message = GuestMessage::findOrFail($id);
         $message->delete();
         return Redirect::route('admin.guest-msg.index', $message)
