@@ -96,6 +96,11 @@ class User extends Authenticatable
         return $query->whereIn('role', ['2', '3']);
     }
 
+    public function scopedrivers($query)
+    {
+        return $query->whereIn('role', '1');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

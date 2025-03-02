@@ -13,14 +13,10 @@
                         <div class="member-img">
                             @php
                                 $file = $team->profile_photo_path;
-                                $photo_path  = asset('storage/' . $file);
+                                $photo_path  = $file ? asset('storage/' . $file) : "assets/assets/images/avatar.png";
                             @endphp
 
-                            @if ($file)
-                                <img style="width: 100%; height: 18rem; object-fit: cover;" class="me-3" src="{{ asset($photo_path) }}" alt="partner-img" alt="ProfilePicture">
-                            @else
-                                <img class="me-3" src="{{ asset('assets/assets/images/avatar.png') }}" alt="ProfilePicture">
-                            @endif
+                            <img style="width: 100%; height: 18rem; object-fit: cover;" class="me-3" src="{{ $photo_path }}" alt="partner-img" alt="ProfilePicture">
                         </div>
                         <div class="member-info">
                             <h4 class="member-name mb-1">{{ $team->firstname ." ". $team->lastname ?? "N/A" }}</h4>
