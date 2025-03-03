@@ -140,7 +140,7 @@
                                     @endforeach
                                 </tbody>
                                 <tfoot>
-                                <!-- <tr>
+                                <tr>
                                     <th>Name/ID</th>
                                     <th>Phone</th>
                                     <th>Email</th>
@@ -148,7 +148,7 @@
                                     <th>User Type</th>
                                     <th>Status</th>
                                 </tr>
-                                </tfoot> -->
+                                </tfoot>
                             </table>
                         </div>
                     </div>

@@ -207,8 +207,13 @@ Route::group(['middleware' => 'auth'], function() {
                     Route::put('/guest-msg/{message}/toggle', [GuestMessageController::class, 'toggleRead'])
                         ->name('guest-msg.toggle');
 
+                    // Route to handle updating user status (ban, suspend, deactivate, activate)
+                    Route::post('/users/{id}/update-status', [UserController::class, 'updateStatus'])
+                    ->name('users.update-status');
 
                 });
+
+                Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
             });
         });
