@@ -29,10 +29,6 @@ Route::middleware('guest')->group(function () {
         return view('home.home');
     })->name('home');
 
-    // Route::get('/about', function () {
-    //     return view('home.about');
-    // })->name('about');
-
     Route::get('/about', [TeamRendererController::class, 'index'])
     ->name('about');
 
