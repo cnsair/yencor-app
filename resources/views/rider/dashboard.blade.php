@@ -37,10 +37,13 @@
                                         <label class="form-check-label" for="cash-pay">Cash</label>
                                     </div>
                                     <div class="form-check form-check-inline" data-value="option2">
-                                        <label class="form-check-label" for="banking-pay">Net Banking</label>
+                                        <label class="form-check-label" for="banking-pay">MoMo</label>
                                     </div>
                                     <div class="form-check form-check-inline" data-value="option3">
-                                        <label class="form-check-label" for="card-pay">Debit Card</label>
+                                        <label class="form-check-label" for="card-pay">Bank</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" data-value="option3">
+                                        <label class="form-check-label" for="card-pay">Crypto</label>
                                     </div>
                                 </div>
                             </div>
@@ -49,33 +52,15 @@
                                 <div class="selected-car">
                                     <div class="form-group car-options">
                                         <div class="car-option" onclick="selectCar('economy')">
-                                            <img src="{{ asset('assets/assets/images/book-ride/Economy.jpeg') }}" alt="Car" class="car-image" id="economy">
+                                            <img src="{{ asset('assets/assets/images/home/economy.png') }}" alt="economy" class="car-image" id="economy">
                                             <div class="car-details">
                                                 <p>Economy</p>
                                             </div>
                                         </div>
                                         <div class="car-option" onclick="selectCar('standard')">
-                                            <img src="{{ asset('assets/assets/images/book-ride/Standard.jpg') }}" alt="Car'" class="car-image" id="standard">
-                                            <div class="car-details">
-                                                <p>Standard</p>
-                                            </div>
-                                        </div>
-                                        <div class="car-option" onclick="selectCar('luxury')">
-                                            <img src="{{ asset('assets/assets/images/book-ride/Luxury.jpeg') }}" alt="Car'" class="car-image" id="luxury">
+                                            <img src="{{ asset('assets/assets/images/home/luxury.png') }}" alt="luxury" class="car-image" id="standard">
                                             <div class="car-details">
                                                 <p>Luxury</p>
-                                            </div>
-                                        </div>
-                                        <div class="car-option" onclick="selectCar('suv')">
-                                            <img src="{{ asset('assets/assets/images/book-ride/SUV.jpeg') }}" alt="Car" class="car-image" id="suv">
-                                            <div class="car-details">
-                                                <p>SUV</p>
-                                            </div>
-                                        </div>
-                                        <div class="car-option" onclick="selectCar('minivan')">
-                                            <img src="{{ asset('assets/assets/images/book-ride/Minivan.jpeg') }}" alt="Car" class="car-image" id="minivan">
-                                            <div class="car-details">
-                                                <p>Minivans</p>
                                             </div>
                                         </div>
                                     </div>
@@ -89,9 +74,9 @@
                     <div class="ride-map-area">
                         <div class="mapouter">
                             <div class="gmap_canvas">
-                                <iframe id="gmap_canvas"
-                                    src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
+                                <livewire:maps />
+                                
                             </div>
                         </div>
                     </div>

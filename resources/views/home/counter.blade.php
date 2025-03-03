@@ -7,7 +7,7 @@
                         <img src="assets/images/icon/counter-icon-1.webp" alt>
                     </div>
                     <h2 class="text-white">
-                        <span class="counter">7,50,000</span>
+                        <span class="counter">10</span>
                     </h2>
                     <p class="counter-text mb-0 text-white">Vehicles</p>
                 </div>
@@ -18,7 +18,7 @@
                         <img src="assets/images/icon/counter-icon-2.webp" alt>
                     </div>
                     <h2 class="text-white">
-                        <span class="counter">220</span> +
+                        <span class="counter">10</span> +
                     </h2>
                     <p class="counter-text mb-0 text-white">Cities</p>
                 </div>
@@ -29,9 +29,9 @@
                         <img src="assets/images/icon/counter-icon-3.webp" alt>
                     </div>
                     <h2 class="text-white">
-                        <span class="counter">5,50,000</span>
+                        <span class="counter">2</span>
                     </h2>
-                    <p class="counter-text mb-0 text-white">Entreprenurs Partners</p>
+                    <p class="counter-text mb-0 text-white">Big Partners</p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
@@ -40,7 +40,7 @@
                         <img src="assets/images/icon/counter-icon4.webp" alt>
                     </div>
                     <h2 class="text-white">
-                        <span class="counter">75,00,000</span>
+                        <span class="counter">1,000+</span>
                     </h2>
                     <p class="counter-text mb-0 text-white">Passengers</p>
                 </div>

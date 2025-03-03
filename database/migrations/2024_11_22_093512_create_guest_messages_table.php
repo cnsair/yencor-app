@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->text('message');
+            $table->longText('message');
+            // 0 = Not Read; 1 = Read;
+            $table->enum('is_read',[0,1])->default(0);
             $table->timestamps();
         });
     }
     
-
     /**
      * Reverse the migrations.
      */

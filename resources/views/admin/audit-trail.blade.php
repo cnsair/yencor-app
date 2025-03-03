@@ -6,6 +6,7 @@
         <div class="app-inner-layout__content">
             <div class="tab-content">
                 <div class="container-fluid">
+
                     <div class="mb-3 card">
                         <div class="card-header-tab card-header">
                             <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
@@ -18,6 +19,7 @@
                                 </button>
                             </div>
                         </div>
+
                         <div class="no-gutters row">
                             <div class="col-sm-6 col-md-4 col-xl-4">
                                 <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
@@ -87,7 +89,7 @@
                                             <td>{{ $log->page_visited }}</td>
                                             <td>{{ $log->ip_address }}</td>
                                             <td>{{ $log->is_registered ? 'Yes' : 'No' }}</td>
-                                            <td>{{ $log->created_at }}</td>
+                                            <td>{{ $log->created_at->diffForHumans() }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -8,17 +8,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <title>{{ Auth()->user()->firstname }}</title>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap" async defer></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
     />
     <meta name="description" content="yencor - A ride hailing App for everyone">
-    <link rel="icon" href="{{ asset('assets/assets/images/yenkor-favicon.ico') }}">
+    <link rel="icon" href="{{ asset('assets/assets/images/icon/yencor-favicon2.ico') }}">
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Main CSS -->
     <link href="{{ asset('assets/admin/css/main.07a59de7b920cd76b874.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/custom.css') }}" rel="stylesheet">
 
     <!-- FontType and Icons CSS -->
 	<link type="text/css" href="{{ asset('assets/admin/icon-font-7-stroke/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}" rel="stylesheet">

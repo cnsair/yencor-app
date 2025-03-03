@@ -15,13 +15,14 @@
                         <div class="hero-area-left">
                             <h1 class="hero-title-v-2">
                                 <span class="hero-title-bg">
-                                    Ride Safety. <span class="hero-title-accent-v-2">Drive and Earn.</span>
-                                    <span>Contribute to the Society.</span>
+                                    AI-Powered
+                                    <span class="hero-title-accent-v-2">Smart</span>
+                                    <span>Public Transportation</span>
                                 </span>
                             </h1>
-                            <p class="hero-text">
+                            <!-- <p class="hero-text">
                                 Partner with us as a rider for ease and comfort, or as a driver to drive your own livelihood and more.
-                            </p>
+                            </p> -->
                             <div class="download-buttons">
                                 <a href="#" aria-label="download-apple-btn">
                                     <img src="{{ asset('assets/assets/images/download-1.webp') }}"alt>
@@ -49,7 +50,7 @@
                                     </div>
                                 </nav>
                                 <div class="tab-content">
-                                    <div class="tab-pane fade" id="nav-ride" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="nav-ride" role="tabpanel"
                                         aria-labelledby="nav-ride-tab">
 
                                         <x-validation-errors class="mb-4" />
@@ -89,12 +90,16 @@
                                                     <input type="password" class="form-control" name="password.confirmation"
                                                         id="password" placeholder="Confirm Password">
                                                 </div>
-                                                <div class="col-12 form-group mt-3">
-                                                    <input type="checkbox" id="agree" name="terms" {{ old('terms') == 1 ? 'checked' : '' }}>
-                                                    <label for="agree">I agree to the
-                                                        <a href="#">Terms and Conditions</a> and
-                                                        <a href="#">Privacy Policy</a></label>
-                                                </div>
+                                   
+                                                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                                    <div class="col-12 form-group mt-3">
+                                                        <input type="checkbox" id="agree" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
+                                                        <label for="agree">I agree to the
+                                                            <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
+                                                            <a href="{{ route('policy.show') }}">Privacy Policy</a></label>
+                                                    </div>
+                                                @endif
+                                                
                                                 <div class="form-btn col-12">
                                                     <button name="register" class="form-button button button-dark big">
                                                         Sign up to Ride
@@ -105,7 +110,7 @@
                                         </form>
                                     </div>
 
-                                    <div class="tab-pane fade show active" id="nav-drive" role="tabpanel"
+                                    <div class="tab-pane fade" id="nav-drive" role="tabpanel"
                                         aria-labelledby="nav-drive-tab">
 
                                         <x-validation-errors class="mb-4" />
@@ -148,12 +153,16 @@
                                                     <input type="password" class="form-control" name="password.confirmation"
                                                         id="password" placeholder="Confirm Password" required>
                                                 </div>
-                                                <div class="col-12 form-group mt-3">
-                                                    <input type="checkbox" id="agree2" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
-                                                    <label for="agree2">I agree to the
-                                                        <a href="#">Terms and Conditions</a> and
-                                                        <a href="#">Privacy Policy</a></label>
-                                                </div>
+                                   
+                                                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                                    <div class="col-12 form-group mt-3">
+                                                        <input type="checkbox" id="agree2" {{ old('terms') == 1 ? 'checked' : '' }} name="terms" required>
+                                                        <label for="agree2">I agree to the
+                                                            <a href="{{ route('terms.show') }}">Terms and Conditions</a> and
+                                                            <a href="{{ route('policy.show') }}">Privacy Policy</a></label>
+                                                    </div>
+                                                @endif
+                                   
                                                 <div class="form-btn col-12">
                                                     <button name="register" class="form-button button button-dark big">
                                                         Become a Driver

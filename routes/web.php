@@ -10,8 +10,11 @@ use App\Http\Controllers\Driver\DriverController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\TeamRendererController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Models\User;
+use App\Models\GuestMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
 
@@ -26,9 +29,12 @@ Route::middleware('guest')->group(function () {
         return view('home.home');
     })->name('home');
 
-    Route::get('/about', function () {
-        return view('home.about');
-    })->name('about');
+    // Route::get('/about', function () {
+    //     return view('home.about');
+    // })->name('about');
+
+    Route::get('/about', [TeamRendererController::class, 'index'])
+    ->name('about');
 
     Route::get('/blog', function () {
         return view('home.blog');
@@ -46,16 +52,16 @@ Route::middleware('guest')->group(function () {
         return view('home.package');
     })->name('package');
 
-    Route::get('/contact-us', function () {
-        return view('home.contact-us');
-    })->name('contact');
-
     Route::get('/book-ride', function () {
         return view('home.book-ride');
     })->name('book-ride');
 
+    Route::get('/contact-us', [GuestMessageController::class, 'create'])
+    ->name('contact');
+
     Route::post('/contact-us', [GuestMessageController::class, 'store'])
-    ->name('contact-us.store');
+    ->name('contact.store');
+
 });
 
 
@@ -106,7 +112,6 @@ Route::group(['middleware' => 'auth'], function() {
                     //update password page
                     Route::patch('/change-password', [ChangePasswordController::class, 'updatePassword'])
                         ->name('change-password.update');
-
                 });
             });
         });
@@ -186,19 +191,28 @@ Route::group(['middleware' => 'auth'], function() {
                     Route::get('/audit-trail', [AuditTrailController::class, 'index'])
                         ->name('audit-trail.index');
 
-                    // guest messages
-                    Route::get('/admin/guest-messages', [GuestMessageController::class, 'index'])
-                        ->name('guest-messages');
-                    
-                    // Route to handle updating user status (ban, suspend, deactivate, activate)
-                    Route::post('/admin/users/{id}/update-status', [UserController::class, 'updateStatus'])
-                    ->name('admin.users.update-status');
+                    // show all guest messages
+                    Route::get('/guest-msg', [GuestMessageController::class, 'index'])
+                        ->name('guest-msg.index');
+
+                    // read guest message
+                    Route::get('/{message}/read-guest-msg', [GuestMessageController::class, 'show'])
+                        ->name('guest-msg.show');
+
+                    // delete guest message
+                    Route::delete('/{message}/guest-msg', [GuestMessageController::class, 'destroy'])
+                        ->name('guest-msg.destroy');
+
+                    //Toggle betweeen Read and Not-Read
+                    Route::put('/guest-msg/{message}/toggle', [GuestMessageController::class, 'toggleRead'])
+                        ->name('guest-msg.toggle');
+
+
                 });
 
             });
         });
     });
-
 
 });
 

@@ -5,14 +5,14 @@
                 <div class="col-lg-3">
                     <div class="footer-brand">
                         <a href="#">
-                            <img src="{{ asset('assets/assets/images/logo-main.webp') }}" alt="Site Logo">
+                            <img src="{{ asset('assets/assets/images/logo/logo-one.png') }}" height="50" alt="Site Logo">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <ul class="social-nav">
                         <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a target="_blank" href="https://x.com/yencordotcom" class="twitter"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
                 </div>
                 <div class="col-lg-3">
@@ -28,12 +28,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>&copy; <script>document.write(new Date().getFullYear());</script> yencor App. All Right Reserved.</p>
+                    <p>&copy; <script>document.write(new Date().getFullYear());</script> Yencor App. All Right Reserved.</p>
                 </div>
                 <div class="col-lg-6">
                     <ul class="social-nav">
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
+                        <li><a href="{{ route('terms.show') }}">Privacy</a></li>
+                        <li><a href="{{ route('policy.show') }}">Terms</a></li>
                     </ul>
                 </div>
             </div>
