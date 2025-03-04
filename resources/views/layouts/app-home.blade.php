@@ -15,7 +15,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/assets/images/icon/yencor-favicon2.ico') }}">
 
     <x-css-links/>
-
 </head>
 
 <body class="theme-1">

@@ -76,6 +76,4 @@ class GuestMessageController extends Controller
             'msg_id' => $message->id, // Store the updated row ID in the session
         ]);
     }
-
-
 }

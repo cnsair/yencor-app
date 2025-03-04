@@ -83,7 +83,6 @@
     </section>
 
     @include('home.counter')
-    @include('home.team')
 
     <script>
         document.querySelector('.dropdown-box').addEventListener('click', function() {

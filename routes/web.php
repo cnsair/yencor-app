@@ -72,7 +72,7 @@ Route::group(['middleware' => 'auth'], function() {
     //Main Redirect Controller
     // Route::resource('redirects', RedirectController::class, 
     // ['only' => 'index']);
-    
+
     Route::get('redirects', [RedirectController::class, 'index'])
     ->name('user.redirect');
    

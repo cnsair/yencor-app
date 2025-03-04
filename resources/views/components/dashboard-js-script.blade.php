@@ -9,6 +9,8 @@
 <script src="{{ asset('assets/assets/plugins/MorrisChart/morris.min.js') }}" type="a69da5dac325925ac4c4d885-text/javascript"></script>
 
 <script src="{{ asset('assets/main/js/scripts.js') }}" type="a69da5dac325925ac4c4d885-text/javascript"></script>
+
+<script src="{{ asset('assets/main/js/custom.js') }}" type="a69da5dac325925ac4c4d885-text/javascript"></script>
 <script type="a69da5dac325925ac4c4d885-text/javascript">
     // Ride chart
     Morris.Area({

@@ -6,11 +6,10 @@ use App\Models\User;
 
 class TeamRendererController extends Controller
 {
-    //Controller that renders posted items
+    //Renders admin on the About homepage
     public function index(){
         $team_data = User::admins()->orderBy('id', 'desc')
-                                ->limit(6)->get();
-                                // $testimony_section = Testimony::where('approved', true)->get();   
+                                ->limit(6)->get(); 
 
         return view('home.about')->with('team_data', $team_data);
     }
