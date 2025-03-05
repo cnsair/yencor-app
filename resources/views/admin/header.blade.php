@@ -28,7 +28,7 @@
     <div class="page-title-heading">
         ADMINISTRATOR
         <div class="page-title-subheading">
-            Signed in as as {{ Auth()->user()->firstname." ".Auth()->user()->lastname }}
+            Signed in as {{ Auth()->user()->firstname." ".Auth()->user()->lastname }}
         </div>
     </div>
     <div class="app-header-right">
