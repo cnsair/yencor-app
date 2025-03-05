@@ -7,6 +7,8 @@ use App\Models\User; // Import the User model
 
 class UserController extends Controller
 {
+    // Other methods like index, show, etc.
+
     /**
      * Update the status of a user.
      *
@@ -35,8 +37,7 @@ class UserController extends Controller
             return response()->json(['success' => true]);
         } catch (\Exception $e) {
             // Log the error
-            // \Illuminate\Support\Facades\Log::info($product);
-            \Illuminate\Support\Facades\Log::error('Error updating user status:', [
+            \Log::error('Error updating user status:', [
                 'error' => $e->getMessage(),
                 'user_id' => $id,
                 'status' => $request->input('status'),
