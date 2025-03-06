@@ -121,17 +121,17 @@
                                                 @if ($user->status == "4")
                                                     <button class="btn btn-sm btn-success">Active</button>
                                                 @elseif ($user->status == "3")
-                                                    <button class="btn btn-sm btn-primary">Inactive</button>
+                                                    <button class="btn btn-sm btn-secondary">Inactive</button>
                                                 @elseif ($user->status == "2")
-                                                    <button class="btn btn-sm btn-default">Suspended</button>
+                                                    <button class="btn btn-sm btn-warning">Suspended</button>
                                                 @elseif ($user->status == "1")
                                                     <button class="btn btn-sm btn-danger">Banned</button>
                                                 @endif
 
                                                 <!-- Action Buttons -->
                                                 <div class="btn-group">
-                                                    <button class="btn btn-sm btn-warning" onclick="updateUserStatus({{ $user->id }}, 1)">Ban</button>
-                                                    <button class="btn btn-sm btn-info" onclick="updateUserStatus({{ $user->id }}, 2)">Suspend</button>
+                                                    <button class="btn btn-sm btn-danger" onclick="updateUserStatus({{ $user->id }}, 1)">Ban</button>
+                                                    <button class="btn btn-sm btn-warning" onclick="updateUserStatus({{ $user->id }}, 2)">Suspend</button>
                                                     <button class="btn btn-sm btn-secondary" onclick="updateUserStatus({{ $user->id }}, 3)">Deactivate</button>
                                                     <button class="btn btn-sm btn-success" onclick="updateUserStatus({{ $user->id }}, 4)">Activate</button>
                                                 </div>
