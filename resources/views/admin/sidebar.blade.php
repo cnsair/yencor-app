@@ -50,7 +50,7 @@
                             <i class="metismenu-icon pe-7s-cloud-upload"></i>
                             Uploads
                         </a>
-                        <a href="{{ url('/admin/admin/testimonials') }}">
+                        <a href="{{ url('/admin/testimonials') }}">
                             <i class="metismenu-icon pe-7s-graph3"></i>
                             Testimonials
                         </a>

@@ -223,9 +223,13 @@ Route::group(['middleware' => 'auth'], function() {
 
                 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
-                Route::get('/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
-                Route::post('/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
-                Route::post('/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
+
+            //    Route::get('/admin/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
+              //  Route::post('/admin/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
+                //Route::post('/admin/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
+            Route::get('/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
+            Route::post('/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
+            Route::post('/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
             });
         });
     });
