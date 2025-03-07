@@ -59,10 +59,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/contact-us', [GuestMessageController::class, 'store'])
     ->name('contact.store');
 
-    Route::get('/testimonial-page', function () {
-        return view('home.testimonial-page');
-    })->name('testimonial');
-
     //Gerard
     Route::get('/add-testimonial', [TestimonialController::class, 'index'])->name('testimonial.index');
     Route::post('/add-testimonial', [TestimonialController::class, 'store'])->name('testimonial.store');
@@ -70,6 +66,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/testimonial/create', [TestimonialController::class, 'create'])->name('testimonial.create');
 Route::post('/testimonial/store', [TestimonialController::class, 'store'])->name('testimonial.store');
+
+
+
 });
 
 
@@ -124,7 +123,6 @@ Route::group(['middleware' => 'auth'], function() {
             });
         });
 
-        
         //========================================================
         // Driver
         //========================================================
@@ -222,13 +220,12 @@ Route::group(['middleware' => 'auth'], function() {
 
                 });
 
+
                 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
-                Route::middleware(['auth', 'admin'])->group(function () {
-                    Route::get('/admin/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
-                    Route::post('/admin/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
-                    Route::post('/admin/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
-                });
+                Route::get('/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
+                Route::post('/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
+                Route::post('/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
             });
         });
     });
