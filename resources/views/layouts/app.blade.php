@@ -15,6 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('assets/main/css/custom.css') }}">
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -22,6 +23,14 @@
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
+
+             <!-- Navigation -->
+             <nav class="bg-white shadow py-4">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-4">
+                    <a href="{{ url('/') }}" class="text-blue-600 hover:underline">Home</a>
+                    <a href="{{ url('/testimonials') }}" class="text-blue-600 hover:underline">Testimonials</a>
+                </div>
+            </nav>
 
             <!-- Page Heading -->
             @if (isset($header))
