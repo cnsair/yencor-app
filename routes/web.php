@@ -17,7 +17,7 @@ use App\Models\User;
 use App\Models\GuestMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
-
+use App\Http\Controllers\Admin\RiderManagementController;
 
 //=======================================
 //Guest/Homepage Routes
@@ -61,6 +61,15 @@ Route::middleware('guest')->group(function () {
 });
 
 
+Route::middleware(['auth', 'check-status'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
+});
 
 //===================================================
 // Dashboard routes
@@ -206,6 +215,14 @@ Route::group(['middleware' => 'auth'], function() {
                     // Route to handle updating user status (ban, suspend, deactivate, activate)
                     Route::post('/users/{id}/update-status', [UserController::class, 'updateStatus'])
                     ->name('users.update-status');
+
+                    Route::get('/riders', [RiderManagementController::class, 'index'])->name('riders.index');
+
+                    // Update rider status (activate, deactivate, suspend, ban)
+                    Route::post('/riders/{rider}/update-status', [RiderManagementController::class, 'updateStatus'])->name('riders.update-status');
+        
+                    // View all rides of a specific rider
+                    Route::get('/riders/{rider}/rides', [RiderManagementController::class, 'showRides'])->name('riders.show-rides');
 
                 });
 

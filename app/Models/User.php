@@ -46,6 +46,17 @@ class User extends Authenticatable
         return $this->hasMany(Rider::class);
     }
 
+    public function getStatusTextAttribute()
+    {
+        $statuses = [
+            1 => 'active',
+            2 => 'inactive',
+            3 => 'suspended',
+            4 => 'banned',
+        ];
+
+        return $statuses[(int) $this->status] ?? 'unknown'; // trying integer if itd oesntw ork we change
+    }
     public function driver()
     {
         return $this->hasMany(Driver::class);

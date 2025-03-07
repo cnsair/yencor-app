@@ -35,10 +35,10 @@ class CreateNewUser implements CreatesNewUsers
 
         if ( $input['role'] == 0 ) {
             $is_rider = 1; 
-            $status = 4; 
+            $status = 1; 
         }else{
             $is_rider = 0; 
-            $status = 3;
+            $status = 1;
         }
 
         if ( $input['role'] == 1 ) {

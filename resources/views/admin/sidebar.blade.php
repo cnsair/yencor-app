@@ -62,9 +62,10 @@
                                     <i class="metismenu-icon pe-7s-vehicle"></i>
                                     Driver
                                 </a>
-                                <a href="#pages">
+                                <a href="{{ route('admin.riders.index') }}">
                                     <i class="metismenu-icon"></i>
                                     Rider
+                                </a>
                                 </a>
                             </li>
                         </ul>
