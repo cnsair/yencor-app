@@ -6,6 +6,7 @@
 
                 <a href="{{ route('admin.dashboard') }}">
                     <img height="70px" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
+                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
                 </a>
 
             @endif
@@ -48,6 +49,10 @@
                         <a href="#index-2.html">
                             <i class="metismenu-icon pe-7s-cloud-upload"></i>
                             Uploads
+                        </a>
+                        <a href="{{ url('/admin/testimonials') }}">
+                            <i class="metismenu-icon pe-7s-graph3"></i>
+                            Testimonials
                         </a>
                     </li>
                     <li>
