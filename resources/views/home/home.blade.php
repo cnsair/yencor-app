@@ -59,9 +59,8 @@
                                             onsubmit="return registerF(this);">
                                             @csrf
 
-                                            <h2 class="form-title">Get member exclusive rewards</h2>
                                             <p class="form-text">
-                                                Enjoy the comfort of stressless and cheap ride 
+                                                Enjoy stressless and pocket friendly rides
                                             </p>
                                             <div class="row">
                                                 <input type="number" class="form-control" name="role"
@@ -119,9 +118,7 @@
                                             onsubmit="return registerF(this);">
                                             @csrf
                                             
-                                            <h2 class="form-title">
-                                                Start driving now and get paid
-                                            </h2>
+                                           
                                             <p class="form-text">
                                                 Enjoy being paid what you deserve.
                                             </p>

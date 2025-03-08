@@ -35,7 +35,12 @@
             </li>
         </ul>
         <div class="header__upper--right flex-column">
-            <a href="{{ route('book-ride') }}" class="button p-3"><i class="far fa-user-astronaut"></i> Book ride</a>
+            <a href="{{ route('buy-yencoin') }}" class="button p-3">
+                <i class="fab fa-btc"></i> Buy YenCoin
+            </a>
+            <a href="{{ route('book-ride') }}" class="button p-3">
+                <i class="far fa-taxi"></i> Book Ride
+            </a>
             <div class="p-3 my-lg-0 d-inline-flex">
                 <a href="{{ route('register') }}" class="button button-light big">Get Started</a>
             </div>

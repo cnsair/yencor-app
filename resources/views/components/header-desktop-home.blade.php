@@ -30,11 +30,13 @@
                         </button>
                     </div>
                 </div>
-                <div class="d-none d-lg-block col-lg-6" style="padding-left: 32%;">
+                <div class="d-none d-lg-block col-lg-6" style="padding-left: 22%;">
                     <div class="header__upper--right">
-                        <!--register-->
+                        <a href="{{ route('buy-yencoin') }}" class="button p-0">
+                            <i class="fab fa-btc"></i> Buy YenCoin
+                        </a>
                         <a href="{{ route('book-ride') }}" class="button p-0">
-                            <i class="far fa-user-astronaut"></i> Book Ride
+                            <i class="far fa-taxi"></i> Book Ride
                         </a>
                     </div>
                 </div>

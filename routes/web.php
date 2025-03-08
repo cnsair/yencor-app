@@ -57,14 +57,15 @@ Route::middleware('guest')->group(function () {
         return view('home.book-ride');
     })->name('book-ride');
 
+    Route::get('/buy-yencoin', function () {
+        return view('home.buy-yencoin');
+    })->name('buy-yencoin');
+
     Route::get('/contact-us', [GuestMessageController::class, 'create'])
     ->name('contact');
 
     Route::post('/contact-us', [GuestMessageController::class, 'store'])
     ->name('contact.store');
-
-    // Route::get('/add-testimonial', [TestimonialController::class, 'index'])
-    // ->name('testimonial.index');
 
     Route::get('/testimonial', [TestimonialController::class, 'create'])
     ->name('testimonial.create');
