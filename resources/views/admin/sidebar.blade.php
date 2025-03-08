@@ -3,12 +3,9 @@
         <div class="app-header__logo">
 
             @if ( Auth::user()->isAdmin() )
-
                 <a href="{{ route('admin.dashboard') }}">
                     <img height="70px" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
-                    <img src="{{ asset('assets/assets/images/logo-main.webp') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
                 </a>
-
             @endif
 
             <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
@@ -42,23 +39,34 @@
                             <i class="metismenu-icon pe-7s-news-paper"></i>
                             Blog
                         </a>
-                        <a href="{{ route('admin.guest-msg.index') }}">
-                            <i class="metismenu-icon pe-7s-mail"></i>
-                            Feedback
-                        </a>
                         <a href="#index-2.html">
                             <i class="metismenu-icon pe-7s-cloud-upload"></i>
                             Uploads
                         </a>
-                        <a href="{{ url('/admin/testimonials') }}">
-                            <i class="metismenu-icon pe-7s-graph3"></i>
-                            Testimonials
-                        </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="metismenu-icon pe-7s-browser"></i>
-                            Others
+                            <i class="metismenu-icon pe-7s-mail"></i>
+                            Feedbacks
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('admin.guest-msg.index') }}">
+                                    <i class="metismenu-icon pe-7s-mail"></i>
+                                    Guest Messages
+                                </a>
+                                <a href="{{ route('admin.testimonial') }}">
+                                    <i class="metismenu-icon pe-7s-microphone"></i>
+                                    Testimonials
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-user"></i>
+                                Accounts
                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                         </a>
                         <ul>

@@ -1,27 +1,52 @@
 @extends('layouts.app-home')
 
 @section('content')
-<div class="testimonial-container">
-    <div class="testimonial-card">
-        <h2 class="testimonial-heading">Share Your Testimonial</h2>
 
-        <form action="{{ route('testimonial.store') }}" method="POST">
-            @csrf
-
-            <div class="form-group">
-                <label for="name" class="form-label">Your Real Name:</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your real name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="content" class="form-label">Tell us your feedback (Max 500 words):</label>
-                <textarea id="content" name="content" class="form-textarea" placeholder="Tell us your feedback in not more than 500 words" maxlength="500" required></textarea>
-            </div>
-
-            <button type="submit" class="submit-button">
-                Submit Testimonial
-            </button>
-        </form>
+    <div class="breadcrumb-div">
+        <div class="container">
+            <h1 class="page-title mb-0">Testimonial</h1>
+            <ol class="breadcrumb">
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li>Testimonial</li>
+            </ol>
+        </div>
     </div>
-</div>
+
+    <section class="div-padding border-0">
+        <div class="container">
+            <h2 class="div-title text-center">Share Your Testimony</h2>
+            <div class="col-md-6 offset-3">
+
+                @if(session('success'))
+                    <p class="success-message">{{ session('success') }}</p>
+                @endif
+
+                <form action="{{ route('testimonial.store') }}" method="POST">
+                    @csrf
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Please enter your full name" required>
+                        @error('name')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content" class="form-label">Testimony:</label>
+                        <textarea id="content" name="content" class="form-textarea" placeholder="Please tell us your experience with us in not more than 300 characters" maxlength="500" required>{{ old('content') }}</textarea>
+                        @error('content')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Submit Testimony
+                    </button>
+                </form>
+               
+            </div>
+        </div>
+    </section>
+
 @endsection

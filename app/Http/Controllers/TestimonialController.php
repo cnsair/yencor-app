@@ -9,17 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class TestimonialController extends Controller
 {
-    public function index()
-    {
-        $testimonials = Testimonial::where('approved', true)->get();
-        return view('testimonial.index', compact('testimonials'));
-    }
+    // public function index()
+    // {
+    //     $testimonials = Testimonial::where('approved', true)->get();
+    //     return view('testimonial.index', compact('testimonials'));
+    // }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'content' => 'required|string',
+            'name' => 'required|string|max:100',
+            'content' => 'required|string|max:300',
         ]);
 
         Testimonial::create([
@@ -28,32 +28,51 @@ class TestimonialController extends Controller
             'approved' => false,
         ]);
 
-        return redirect()->back()->with('success', 'Testimonial submitted for review.');
+        return redirect()->back()->with('success', 'Testimonial submitted for review');
     }
 
     public function create()
     {
-
         return view('home.add-testimonial');
     }
 
     public function adminIndex()
     {
-        $testimonials = Testimonial::all();
-        return view('admin.testimonials', compact('testimonials'));
+        $testimonials = Testimonial::latest()->get();
+        return view('admin.testimonial', compact('testimonials'));
     }
 
-    public function approve($id)
+    public function show(Testimonial $testimonial)
     {
-        $testimonial = Testimonial::findOrFail($id);
-        $testimonial->update(['approved' => true]);
+        // Check if message exists
+       if (!$testimonial) {
+           return redirect()->back()->with('status', 'error');
+        }
 
-        return redirect()->back()->with('success', 'Testimonial approved.');
+        return view('admin.read-testimonial', compact('testimonial'));
     }
 
-    public function reject($id)
+    public function toggleApprove(Testimonial $testimonial)
+    {
+        // Check if message exists
+        if (!$testimonial) {
+           return redirect()->back()->with('status', 'error');
+        }
+
+        // Toggle the is_read status
+        $testimonial->approved = !$testimonial->approved;
+        $testimonial->update();
+
+        // return redirect()->back()->with('status', 'success');
+        return redirect()->back()->with([
+            'status' => 'toggled',
+            'approved_id' => $testimonial->id, // Store the updated row ID in the session
+        ]);
+    }
+
+    public function destroy($id)
     {
         Testimonial::findOrFail($id)->delete();
-        return redirect()->back()->with('success', 'Testimonial rejected.');
+        return redirect()->back()->with('status', 'success');
     }
 }
