@@ -109,11 +109,11 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ( $user->is_rider == 1 )
+                                                @if ( $user->isRider() )
                                                     Rider
-                                                @elseif ( $user->is_driver == 1 )
+                                                @elseif ( $user->isDriver() )
                                                    Driver
-                                                @elseif ( $user->is_admin == 1 )
+                                                @elseif ( $user->isAdmin() )
                                                     Admin
                                                 @endif
                                             </td>

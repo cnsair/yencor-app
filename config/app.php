@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('Yenkor', 'Yenkor - Lets Go'),
+    'name' => env('APP_NAME', 'Yencor - Lets Go'),
 
     /*
     |--------------------------------------------------------------------------

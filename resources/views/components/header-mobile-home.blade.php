@@ -36,7 +36,7 @@
         </ul>
         <div class="header__upper--right flex-column">
             <a href="{{ route('buy-yencoin') }}" class="button p-3">
-                <i class="fab fa-btc"></i> Buy YenCoin
+                <i class="fas fa-yen-sign"></i> Buy $YenCoin
             </a>
             <a href="{{ route('book-ride') }}" class="button p-3">
                 <i class="far fa-taxi"></i> Book Ride

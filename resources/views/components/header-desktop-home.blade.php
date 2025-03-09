@@ -33,7 +33,7 @@
                 <div class="d-none d-lg-block col-lg-6" style="padding-left: 22%;">
                     <div class="header__upper--right">
                         <a href="{{ route('buy-yencoin') }}" class="button p-0">
-                            <i class="fab fa-btc"></i> Buy YenCoin
+                            <i class="fas fa-yen-sign"></i> Buy $YenCoin
                         </a>
                         <a href="{{ route('book-ride') }}" class="button p-0">
                             <i class="far fa-taxi"></i> Book Ride

@@ -239,11 +239,6 @@ Route::group(['middleware' => 'auth'], function() {
 
                     });
                 });
-
-
-            //    Route::get('/admin/testimonials', [TestimonialController::class, 'adminIndex'])->name('admin.testimonials');
-              //  Route::post('/admin/testimonials/{id}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
-                //Route::post('/admin/testimonials/{id}/reject', [TestimonialController::class, 'reject'])->name('testimonials.reject');
                 
         });
     });
