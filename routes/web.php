@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Models\GuestMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
+use App\Http\Controllers\Admin\RiderManagementController;
 
 
 //=======================================
@@ -206,6 +207,16 @@ Route::group(['middleware' => 'auth'], function() {
                     // Route to handle updating user status (ban, suspend, deactivate, activate)
                     Route::post('/users/{id}/update-status', [UserController::class, 'updateStatus'])
                     ->name('users.update-status');
+                    Route::get('/riders', [RiderManagementController::class, 'index'])
+                    ->name('riders.index');
+    
+                // Update Rider Status
+                Route::post('/riders/{rider}/update-status', [RiderManagementController::class, 'updateStatus'])
+                    ->name('riders.update-status');
+    
+                // View all rides of a rider
+                Route::get('/riders/{rider}/rides', [RiderManagementController::class, 'showRides'])
+                    ->name('riders.show-rides');
 
                 });
 

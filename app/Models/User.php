@@ -81,6 +81,8 @@ class User extends Authenticatable
         }
     }
 
+    
+
     public function isAdmin()
     {
         if( ( $this->role == 2 || $this->role == 3 ) && $this->is_admin == 1 ) { 
@@ -100,6 +102,19 @@ class User extends Authenticatable
     {
         return $query->whereIn('role', '1');
     }
+    
+    public function getStatusTextAttribute()
+{
+    $statuses = [
+        1 => 'Active',
+        2 => 'Deactivated',
+        3 => 'Suspended',
+        4 => 'Banned',
+    ];
+
+    return $statuses[$this->status] ?? 'Unknown';
+}
+
 
     /**
      * The attributes that should be hidden for serialization.
