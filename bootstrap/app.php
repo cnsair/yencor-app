@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'driver' => \App\Http\Middleware\DriverMiddleware::class,
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
             'audit-trail' => \App\Http\Middleware\LogUserActivity::class,
+            'check.rider.status' => \App\Http\Middleware\CheckRiderStatus::class, // miiddleware time lets go
         ]);
         
     })

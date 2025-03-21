@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RiderController extends Controller
 {
@@ -62,4 +63,33 @@ class RiderController extends Controller
     {
         //
     }
+
+    public function dashboard()
+    {
+        return view('rider.dashboard');
+    }
+    
+    /*  
+    public function checkUserStatus()
+    private function checkUserStatus()
+    {
+        if (Auth::check() && Auth::user()->status != 4) {
+            Auth::logout();
+            session()->invalidate();
+            session()->regenerateToken();
+            return redirect('/login')->with('error', 'Your account is not active. Please contact an administrator.');
+        }
+        return null;
+    }
+
+    public function dashboard()
+    {
+        if ($redirect = $this->checkUserStatus()) {
+            return $redirect;
+        }
+
+        // Your existing dashboard logic
+        return view('rider.dashboard');
+    }
+        */
 }

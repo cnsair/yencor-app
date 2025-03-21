@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rider extends Model
 {
     use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,10 +20,11 @@ class Rider extends Model
         'pick_up',
         'destination',
         'completed',
+        'user_id',
     ];
 
-    public function user() 
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
