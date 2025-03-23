@@ -35,7 +35,7 @@
                             <i class="metismenu-icon pe-7s-graph3"></i>
                             Audit Trail
                         </a>
-                        <a href="#index-2.html">
+                        <a href="blogs">
                             <i class="metismenu-icon pe-7s-news-paper"></i>
                             Blog
                         </a>
@@ -71,7 +71,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="#pages">
+                                <a href="driver-registered">
                                     <i class="metismenu-icon pe-7s-vehicle"></i>
                                     Driver
                                 </a>

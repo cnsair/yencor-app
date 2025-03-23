@@ -19,7 +19,7 @@ use App\Models\GuestMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
 use App\Http\Controllers\TestimonialController;
-
+use App\Http\Controllers\Admin\BlogController;
 
 //=======================================
 //Guest/Homepage Routes
@@ -37,9 +37,10 @@ Route::middleware('guest')->group(function () {
     Route::get('/about', [TeamRendererController::class, 'index'])
     ->name('about');
 
-    Route::get('/blog', function () {
-        return view('home.blog');
-    })->name('blog');
+    Route::get('/blog', [BlogController::class, 'index'])
+    ->name('blog');
+    Route::get('/blogs/{id}', [BlogController::class, 'show'])
+    ->name('blogs.show');
 
     Route::get('/service', function () {
         return view('home.service');
@@ -237,6 +238,21 @@ Route::group(['middleware' => 'auth'], function() {
                     Route::delete('/{testimonial}', [TestimonialController::class, 'destroy'])
                     ->name('testimonial.destroy');
 
+                    // Blog
+                    Route::get('/blogs', [BlogController::class, 'adminIndex'])
+                        ->name('blogs'); // View all blogs
+                    Route::get('/create-blog', [BlogController::class, 'create'])
+                        ->name('create-blog'); // Create form
+                    Route::post('/blogs', [BlogController::class, 'store'])
+                        ->name('blogs.store'); // Store blog
+                    Route::get('/blogs/{id}', [BlogController::class, 'showAdmin'])
+                        ->name('blogs.show'); // View blog
+                    Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])
+                        ->name('blog-edit'); // update a blog posted
+                    Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])
+                        ->name('blogs.destroy'); // delete a blog
+                    Route::put('/blogs/{id}', [BlogController::class, 'update'])
+                        ->name('blogs.update');
                     });
                 });
                 
