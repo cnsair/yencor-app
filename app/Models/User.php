@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Rider;
+
 
 class User extends Authenticatable
 {
@@ -40,7 +42,6 @@ class User extends Authenticatable
         'biography',
         'd_o_b',
     ];
-
     public function rider()
     {
         return $this->hasMany(Rider::class);
@@ -101,6 +102,34 @@ class User extends Authenticatable
         return $query->whereIn('role', '1');
     }
 
+
+
+    public function getStatusTextAttribute()
+    {
+        $statuses = [
+            1 => 'Banned',
+            2 => 'Suspended',
+            3 => 'Inactive',
+            4 => 'Active',
+        ];
+    
+        return $statuses[$this->status] ?? 'Unknown';
+    }
+    
+    public function getAuthPassword()
+    {
+        if ($this->status != 4) {
+            throw new \Illuminate\Auth\AuthenticationException('Your account is not active. Please contact an administrator.');
+        }
+        return $this->password;
+    }
+
+   
+ // public function rider()
+   //
+    //  return $this->hasOne(Ride::class, 'rider_id');
+   //
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -132,6 +161,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            
         ];
     }
 }

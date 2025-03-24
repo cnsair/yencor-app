@@ -19,6 +19,8 @@ use App\Models\GuestMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\Admin\RiderManagementController;
+use App\Http\Controllers\UserStatusController;
 
 
 //=======================================
@@ -97,7 +99,7 @@ Route::group(['middleware' => 'auth'], function() {
         //========================================================
         // Rider
         //========================================================
-        Route::group(['middleware' => 'rider'], function() {
+        Route::group(['middleware' => ['rider', 'check.rider.status']], function() {
             Route::prefix('rider')->group(function () {
                 Route::name('rider.')->group(function () {
 
@@ -237,10 +239,30 @@ Route::group(['middleware' => 'auth'], function() {
                     Route::delete('/{testimonial}', [TestimonialController::class, 'destroy'])
                     ->name('testimonial.destroy');
 
+            
+
+                    Route::get('/riders', [\App\Http\Controllers\Admin\RiderManagementController::class, 'index'])
+                    ->name('riders.index');
+    
+                Route::post('/riders/{rider}/update-status', [\App\Http\Controllers\Admin\RiderManagementController::class, 'updateStatus'])
+                    ->name('riders.update-status');
+    
+                Route::get('/riders/{rider}/rides', [\App\Http\Controllers\Admin\RiderManagementController::class, 'showRides'])
+                    ->name('riders.show-rides');
+
+                    Route::get('/riders/{rider}/confirm-status/{status}', [\App\Http\Controllers\Admin\RiderManagementController::class, 'confirmStatus'])
+    ->name('riders.confirm-status');
+
+                  
+          //  Route::get('/users/{user}/confirm-status/{status}', [UserStatusController::class, 'confirmStatusUpdate'])
+           // ->name('users.confirm-status');
+        //Route::post('/users/{user}/update-status', [UserStatusController::class, 'updateStatus'])
+          //  ->name('users.update-status');
+
                     });
                 });
                 
-        });
+        }); 
     });
 
 });
