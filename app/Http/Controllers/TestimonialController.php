@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 
 class TestimonialController extends Controller
@@ -20,8 +21,18 @@ class TestimonialController extends Controller
         $request->validate([
             'name' => 'required|string|max:100',
             'content' => 'required|string|max:300',
-        ]);
+            'g-recaptcha-response' => ['required', function ($attribute, $value, $fail) use ($request) {
+                $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => env('RECAPTCHA_SECRET_KEY'),
+                    'response' => $value,
+                    'remoteip' => $request->ip(),
+                ])->json();
 
+                if (!$response['success']) {
+                    $fail('reCAPTCHA verification failed.');
+                }
+            }],
+        ]);
         Testimonial::create([
             'name' => $request->name,
             'content' => $request->content,

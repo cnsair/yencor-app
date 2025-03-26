@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\GuestMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 class GuestMessageController extends Controller
@@ -21,8 +22,18 @@ class GuestMessageController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|string|min:10|max:1500',
-        ]);
+            'g-recaptcha-response' => ['required', function ($attribute, $value, $fail) use ($request) {
+                $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => env('RECAPTCHA_SECRET_KEY'),
+                    'response' => $value,
+                    'remoteip' => $request->ip(),
+                ])->json();
 
+                if (!$response['success']) {
+                    $fail('reCAPTCHA verification failed.');
+                }
+            }],
+        ]);
         GuestMessage::create($validatedData);
 
         return redirect()->back()->with('success', 'Thank you for your message! An admin might get back to you.');

@@ -72,6 +72,14 @@
                                             id="passwordConfirm" placeholder="Confirm Password">
                                         <label for="passwordConfirm">Confirm Password</label>
                                     </div>
+
+                                    <!-- reCAPTCHA -->
+                                <div class="form-group text-center">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                    @error('g-recaptcha-response')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                    
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                         <div class="">
@@ -138,6 +146,13 @@
                                             id="passwordConfirm2" placeholder="Confirm Password" required>
                                         <label for="passwordConfirm2">Confirm Password</label>
                                     </div>
+                            <!-- reCAPTCHA -->
+                            <div class="form-group text-center">
+                                <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                @error('g-recaptcha-response')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
 
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                         <div class="">
@@ -164,5 +179,5 @@
             </div>
         </div>
     </div>
-    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endsection
