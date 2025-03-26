@@ -46,7 +46,9 @@
     </div>
 </div>
 
-<!-- Feedback Form Section -->
+
+
+<!--    doing anew this doesnt look nice  Feedback Form Section 
 <div class="feedback-form">
     <h1>Give us a Feedback</h1>
 
@@ -80,9 +82,70 @@
                 <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
-
+ reCAPTCHA 
+<div class="form-group">
+    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+    @error('g-recaptcha-response')
+        <p class="error-message">{{ $message }}</p>
+    @enderror
+</div>
         <button type="submit" class="submit-btn">Submit</button>
     </form>
 </div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+-->
+
+<!-- Gerrd Feedback Form Section -->
+<div class="gerrd-feedback-form-container">
+    <h2 class="gerrd-form-title">We Value Your Feedback</h2>
+
+    @if(session('success'))
+        <div class="gerrd-alert gerrd-success-message">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
+
+    <form action="{{ route('contact.store') }}" method="POST" class="gerrd-feedback-form">
+        @csrf
+        
+        <div class="gerrd-form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" value="{{ old('name') }}" class="gerrd-form-input" required>
+            @error('name')
+                <p class="gerrd-error-message">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="gerrd-form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" value="{{ old('email') }}" class="gerrd-form-input" required>
+            @error('email')
+                <p class="gerrd-error-message">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="gerrd-form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" class="gerrd-form-textarea" rows="5" required>{{ old('message') }}</textarea>
+            @error('message')
+                <p class="gerrd-error-message">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- reCAPTCHA -->
+        <div class="gerrd-form-group">
+            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+            @error('g-recaptcha-response')
+                <p class="gerrd-error-message">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <button type="submit" class="gerrd-submit-btn">Submit Feedback</button>
+    </form>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 @endsection
+

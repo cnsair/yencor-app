@@ -38,8 +38,14 @@
                         @error('content')
                             <p class="error-message">{{ $message }}</p>
                         @enderror
-                    </div>
-
+                    </div>            
+               <!-- reCAPTCHA -->
+               <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                @error('g-recaptcha-response')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
                     <button type="submit" class="submit-btn">
                         Submit Testimony
                     </button>
@@ -47,6 +53,7 @@
                
             </div>
         </div>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </section>
 
 @endsection
