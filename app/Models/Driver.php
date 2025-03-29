@@ -19,6 +19,8 @@ class Driver extends Model
         'pick_up',
         'destination',
         'completed',
+        'license_number',
+        'status',
     ];
 
     public function user() 

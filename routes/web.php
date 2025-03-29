@@ -7,7 +7,6 @@ use App\Http\Controllers\DashboardRendererController;
 use App\Http\Controllers\Admin\AdminDashboardRendererController;
 use App\Http\Controllers\HomeRendererController;
 use App\Http\Controllers\Rider\RiderController;
-use App\Http\Controllers\Driver\DriverController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
@@ -20,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\AdminDriverController;
+use App\Http\Controllers\Admin\DriverController;
 
 //=======================================
 //Guest/Homepage Routes
@@ -255,14 +254,17 @@ Route::group(['middleware' => 'auth'], function() {
                     Route::put('/blogs/{id}', [BlogController::class, 'update'])
                         ->name('blogs.update');
 
-                    
-                    // registered-driver
-                    Route::get('/driver-registered', [AdminDriverController::class, 'index'])
-                        ->name('driver-registered');  
-                    Route::get('/driver-registered-detals/{driver}', [AdminDriverController::class, 'show'])
+                    // Driver list view
+                    Route::get('/driver-registered', [DriverController::class, 'index'])
+                        ->name('driver-registered');
+
+                    // Driver details view
+                    Route::get('/driver-registered-details/{driver}', [DriverController::class, 'show'])
                         ->name('driver-registered-details');
-                    Route::post('/{driver}/update-status', [AdminDriverController::class, 'updateStatus'])
-                        ->name('admin.updateStatus');
+
+                    // Driver status update
+                    Route::post('/driver-registered/{driver}/update-status', [DriverController::class, 'updateStatus'])
+                        ->name('driver-registered.updateStatus');
                     });
                 });
 
