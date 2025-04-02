@@ -35,7 +35,7 @@
                             <i class="metismenu-icon pe-7s-graph3"></i>
                             Audit Trail
                         </a>
-                        <a href="blogs">
+                        <a href="#index-2.html">
                             <i class="metismenu-icon pe-7s-news-paper"></i>
                             Blog
                         </a>
@@ -71,11 +71,11 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="driver-registered">
+                                <a href="#pages">
                                     <i class="metismenu-icon pe-7s-vehicle"></i>
                                     Driver
                                 </a>
-                                <a href="#pages">
+                                <a href="{{ route('admin.riders.index') }}">
                                     <i class="metismenu-icon"></i>
                                     Rider
                                 </a>
