@@ -8,21 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Rider extends Model
 {
     use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $table = 'riders';
     protected $fillable = [
-        'vehicle',
-        'payment',
-        'pick_up',
-        'destination',
-        'completed',
+       'user_id', 'vehicle', 'pick_up', 'destination', 'payment', 'completed'
     ];
 
-    public function user() 
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, );
     }
 }
