@@ -35,8 +35,8 @@
                 <div class="single-contact-info text-center">
                     <img src="assets/assets/images/icon/contact_info-3.webp" alt="icon">
                     <h4>E-mail</h4>
-                    <p>Email : 
-                        <a href="#" class="__cf_email__" >
+                    <p>Email :
+                        <a href="#" class="__cf_email__">
                             admin@yencor.com | info@yencor.com | support@yencor.com
                         </a>
                     </p>
@@ -51,17 +51,17 @@
     <h1>Give us a Feedback</h1>
 
     @if(session('success'))
-        <p class="success-message">{{ session('success') }}</p>
+    <p class="success-message">{{ session('success') }}</p>
     @endif
 
     <form action="{{ route('contact.store') }}" method="POST">
         @csrf
-        
+
         <div class="form-group">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" value="{{ old('name') }}" required>
             @error('name')
-                <p class="error-message">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
@@ -69,7 +69,7 @@
             <label for="email">Your Email:</label>
             <input type="email" id="email" name="email" value="{{ old('email') }}" required>
             @error('email')
-                <p class="error-message">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
@@ -77,12 +77,18 @@
             <label for="message">Your Message:</label><br>
             <textarea id="message" name="message" rows="5" required>{{ old('message') }}</textarea>
             @error('message')
-                <p class="error-message">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
-
+        <!-- reCAPTCHA -->
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+            @error('g-recaptcha-response')
+            <p class="error-message">{{ $message }}</p>
+            @enderror
+        </div>
         <button type="submit" class="submit-btn">Submit</button>
     </form>
 </div>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endsection
