@@ -19,9 +19,15 @@ class Rider extends Model
         'pick_up',
         'destination',
         'completed',
+        'user_id',
+        'vehicle',
+        'pick_up',
+        'destination',
+        'payment',
+        'completed'
     ];
 
-    public function user() 
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
