@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Rider;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class RiderManagementController extends Controller
 {
@@ -19,22 +20,31 @@ class RiderManagementController extends Controller
     public function updateStatus(Request $request, User $rider)
     {
         $request->validate(['status' => 'required|in:1,2,3,4']);
-        $oldStatus = $rider->status;
-        $newStatus = (int) $request->status;
+        $newStatus = (int) $request->status; // New status being set
 
         // Only proceed if the user is a rider
-        if ($rider->is_rider) {
+        if (!$rider->is_rider) {
+            return back()->with('error', 'This user is not a rider.');
+        }
+
+
+        try {
             $rider->status = $newStatus;
             $rider->save();
 
-            if ($newStatus != 4 && $oldStatus == 4) {
-                return back()->with('failure', 'Rider account is not active.');
-            }
+            $statusText = match ($newStatus) {
+                1 => 'Banned',
+                2 => 'Suspended',
+                3 => 'Deactivated',
+                4 => 'Active',
+                default => 'Unknown',
+            };
 
-            return back()->with('success', 'Rider status updated successfully!');
+            return back()->with('success', "Rider status updated to $statusText successfully!");
+        } catch (\Exception $e) {
+            Log::error('Failed to update rider status: ' . $e->getMessage());
+            return back()->with('error', 'Failed to update rider status. Please try again.');
         }
-
-        return back()->with('error', 'This user is not a rider.');
     }
 
     public function showRides(User $rider)

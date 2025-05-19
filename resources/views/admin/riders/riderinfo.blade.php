@@ -97,6 +97,15 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                    <th>View Rides</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -104,6 +113,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- DataTables Script -->
 @push('scripts')

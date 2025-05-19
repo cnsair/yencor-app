@@ -268,14 +268,24 @@ Route::group(['middleware' => 'auth'], function () {
                     Route::get('/riders/{rider}/rides', [\App\Http\Controllers\Admin\RiderManagementController::class, 'showRides'])
                         ->name('riders.show-rides');
 
-                    Route::get('/riders/{rider}/confirm-status/{status}', [\App\Http\Controllers\Admin\RiderManagementController::class, 'confirmStatus'])
-                        ->name('riders.confirm-status');
+
 
 
                     //  Route::get('/users/{user}/confirm-status/{status}', [UserStatusController::class, 'confirmStatusUpdate'])
                     // ->name('users.confirm-status');
                     //Route::post('/users/{user}/update-status', [UserStatusController::class, 'updateStatus'])
                     //  ->name('users.update-status');
+                });
+            });
+        });
+
+        // Rider Routes
+        Route::group(['middleware' => ['rider', 'check.rider.status']], function () {
+            Route::prefix('rider')->group(function () {
+                Route::name('rider.')->group(function () {
+                    Route::get('/dashboard', function () {
+                        return view('rider.dashboard');
+                    })->name('dashboard');
                 });
             });
         });

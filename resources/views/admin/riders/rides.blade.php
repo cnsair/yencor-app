@@ -49,7 +49,7 @@
                                 </tr>
                                 @endif
                             </tbody>
-                            <!--
+
                             <tfoot>
                                 <tr>
                                     <th>Ride ID</th>
@@ -58,7 +58,7 @@
                                     <th>Date</th>
                                 </tr>
                             </tfoot>
-                            -->
+
 
                         </table>
                     </div>

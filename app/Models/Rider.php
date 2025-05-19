@@ -13,6 +13,7 @@ class Rider extends Model
      *
      * @var array<int, string>
      */
+    protected $table = 'riders';
     protected $fillable = [
         'vehicle',
         'payment',
