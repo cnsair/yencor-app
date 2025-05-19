@@ -3,9 +3,9 @@
         <div class="app-header__logo">
 
             @if ( Auth::user()->isAdmin() )
-                <a href="{{ route('admin.dashboard') }}">
-                    <img height="70px" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
-                </a>
+            <a href="{{ route('admin.dashboard') }}">
+                <img height="70px" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
+            </a>
             @endif
 
             <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
@@ -66,7 +66,7 @@
                     <li>
                         <a href="#">
                             <i class="metismenu-icon pe-7s-user"></i>
-                                Accounts
+                            Accounts
                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                         </a>
                         <ul>
@@ -75,9 +75,12 @@
                                     <i class="metismenu-icon pe-7s-vehicle"></i>
                                     Driver
                                 </a>
-                                <a href="#pages">
+                                <a href="{{ route('admin.riders.index') }}">
+
                                     <i class="metismenu-icon"></i>
+
                                     Rider
+
                                 </a>
                             </li>
                         </ul>

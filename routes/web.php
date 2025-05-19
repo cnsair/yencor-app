@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestMessageController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Admin\BlogController;
-
+use App\Http\Controllers\Admin\RiderManagementController;
+use App\Http\Controllers\UserStatusController;
 //=======================================
 //Guest/Homepage Routes
 //=======================================
@@ -32,15 +33,15 @@ Route::middleware('guest')->group(function () {
     // })->name('home');
 
     Route::get('/', [HomeRendererController::class, 'index'])
-    ->name('home');
+        ->name('home');
 
     Route::get('/about', [TeamRendererController::class, 'index'])
-    ->name('about');
+        ->name('about');
 
     Route::get('/blog', [BlogController::class, 'index'])
-    ->name('blog');
+        ->name('blog');
     Route::get('/blogs/{id}', [BlogController::class, 'show'])
-    ->name('blogs.show');
+        ->name('blogs.show');
 
     Route::get('/service', function () {
         return view('home.service');
@@ -63,17 +64,16 @@ Route::middleware('guest')->group(function () {
     })->name('buy-yencoin');
 
     Route::get('/contact-us', [GuestMessageController::class, 'create'])
-    ->name('contact');
+        ->name('contact');
 
     Route::post('/contact-us', [GuestMessageController::class, 'store'])
-    ->name('contact.store');
+        ->name('contact.store');
 
     Route::get('/testimonial', [TestimonialController::class, 'create'])
-    ->name('testimonial.create');
+        ->name('testimonial.create');
 
     Route::post('/testimonial', [TestimonialController::class, 'store'])
-    ->name('testimonial.store');
-
+        ->name('testimonial.store');
 });
 
 
@@ -83,33 +83,35 @@ Route::middleware('guest')->group(function () {
 //==================================================
 
 // Auth middleware
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
 
     //Main Redirect Controller
     // Route::resource('redirects', RedirectController::class, 
     // ['only' => 'index']);
 
     Route::get('redirects', [RedirectController::class, 'index'])
-    ->name('user.redirect');
-   
+        ->name('user.redirect');
+
     // Audit Trail middleware
-    Route::group(['middleware' => 'audit-trail'], function() {
+    Route::group(['middleware' => 'audit-trail'], function () {
 
         //========================================================
         // Rider
         //========================================================
-        Route::group(['middleware' => 'rider'], function() {
+        Route::group(['middleware' => 'rider'], function () {
             Route::prefix('rider')->group(function () {
                 Route::name('rider.')->group(function () {
 
                     //view analytics page
                     Route::get('/dashboard', function () {
-                        return view('rider.dashboard'); })
+                        return view('rider.dashboard');
+                    })
                         ->name('dashboard');
 
                     //dashboard:view
                     Route::get('/edit-profile', function () {
-                        return view('rider.edit-profile'); })
+                        return view('rider.edit-profile');
+                    })
                         ->name('edit-profile.edit');
 
                     //view upload page
@@ -118,7 +120,8 @@ Route::group(['middleware' => 'auth'], function() {
 
                     //change password:view
                     Route::get('/change-password', function () {
-                        return view('rider.change-password'); })
+                        return view('rider.change-password');
+                    })
                         ->name('change-password.edit');
 
                     //update password page
@@ -131,8 +134,8 @@ Route::group(['middleware' => 'auth'], function() {
         //========================================================
         // Driver
         //========================================================
-        Route::group(['middleware' => 'driver'], function() {
-        
+        Route::group(['middleware' => 'driver'], function () {
+
             Route::prefix('driver')->group(function () {
                 Route::name('driver.')->group(function () {
 
@@ -142,7 +145,8 @@ Route::group(['middleware' => 'auth'], function() {
 
                     // Edit Profile
                     Route::get('/edit-profile', function () {
-                        return view('driver.edit-profile'); })
+                        return view('driver.edit-profile');
+                    })
                         ->name('edit-profile.edit');
 
                     //view upload page
@@ -151,21 +155,21 @@ Route::group(['middleware' => 'auth'], function() {
 
                     //change password:view
                     Route::get('/change-password', function () {
-                        return view('driver.change-password'); })
+                        return view('driver.change-password');
+                    })
                         ->name('change-password.edit');
 
                     //update password page
                     Route::patch('/change-password', [ChangePasswordController::class, 'updatePassword'])
                         ->name('change-password.update');
-                    
+
                     //Register vehicle
                     Route::get('/register-vehicle', [VehicleController::class, 'create'])
                         ->name('register-vehicle.create');
-                    
+
                     //Delete vehicle record
                     Route::delete('/dashboard/{vehicle}', [VehicleController::class, 'destroy'])
                         ->name('vehicle.destroy');
-
                 });
             });
         });
@@ -173,7 +177,7 @@ Route::group(['middleware' => 'auth'], function() {
         //========================================================
         // Admin
         //========================================================
-        Route::group(['middleware' => 'admin'], function() {
+        Route::group(['middleware' => 'admin'], function () {
             Route::prefix('admin')->group(function () {
                 Route::name('admin.')->group(function () {
 
@@ -183,16 +187,18 @@ Route::group(['middleware' => 'auth'], function() {
 
                     // Edit Profile
                     Route::get('/edit-profile', function () {
-                        return view('admin.edit-profile'); })
+                        return view('admin.edit-profile');
+                    })
                         ->name('edit-profile.edit');
-        
+
                     // view upload
                     Route::patch('/edit-profile', [ProfileController::class, 'update'])
                         ->name('edit-profile.update');
 
                     // change password
                     Route::get('/change-password', function () {
-                        return view('admin.change-password'); })
+                        return view('admin.change-password');
+                    })
                         ->name('change-password.edit');
 
                     // update password 
@@ -221,22 +227,22 @@ Route::group(['middleware' => 'auth'], function() {
 
                     // Route to handle updating user status (ban, suspend, deactivate, activate)
                     Route::post('/users/{id}/update-status', [UserController::class, 'updateStatus'])
-                    ->name('users.update-status');
+                        ->name('users.update-status');
 
                     // Display all testimonies
                     Route::get('/testimonial', [TestimonialController::class, 'adminIndex'])
-                    ->name('testimonial');
+                        ->name('testimonial');
 
                     // Display all testimonies
                     Route::get('/{testimonial}/read-testimony', [TestimonialController::class, 'show'])
-                    ->name('testimonial.show');
+                        ->name('testimonial.show');
 
                     // Approve and Disapprove testimonies
                     Route::put('/{testimonial}/toggle', [TestimonialController::class, 'toggleApprove'])
-                    ->name('testimonial.toggle');
+                        ->name('testimonial.toggle');
 
                     Route::delete('/{testimonial}', [TestimonialController::class, 'destroy'])
-                    ->name('testimonial.destroy');
+                        ->name('testimonial.destroy');
 
                     // Blog
                     Route::get('/blogs', [BlogController::class, 'adminIndex'])
@@ -253,12 +259,37 @@ Route::group(['middleware' => 'auth'], function() {
                         ->name('blogs.destroy'); // delete a blog
                     Route::put('/blogs/{id}', [BlogController::class, 'update'])
                         ->name('blogs.update');
-                    });
+                    Route::get('/riders', [\App\Http\Controllers\Admin\RiderManagementController::class, 'index'])
+                        ->name('riders.index');
+
+                    Route::post('/riders/{rider}/update-status', [\App\Http\Controllers\Admin\RiderManagementController::class, 'updateStatus'])
+                        ->name('riders.update-status');
+
+                    Route::get('/riders/{rider}/rides', [\App\Http\Controllers\Admin\RiderManagementController::class, 'showRides'])
+                        ->name('riders.show-rides');
+
+
+
+
+                    //  Route::get('/users/{user}/confirm-status/{status}', [UserStatusController::class, 'confirmStatusUpdate'])
+                    // ->name('users.confirm-status');
+                    //Route::post('/users/{user}/update-status', [UserStatusController::class, 'updateStatus'])
+                    //  ->name('users.update-status');
                 });
-                
+            });
+        });
+
+        // Rider Routes
+        Route::group(['middleware' => ['rider', 'check.rider.status']], function () {
+            Route::prefix('rider')->group(function () {
+                Route::name('rider.')->group(function () {
+                    Route::get('/dashboard', function () {
+                        return view('rider.dashboard');
+                    })->name('dashboard');
+                });
+            });
         });
     });
-
 });
 
 
@@ -273,5 +304,4 @@ Route::middleware([
         return redirect()->route('user.redirect');
         // abort(403, 'Unauthorised action!');
     })->name('dashboard');
-
 });
