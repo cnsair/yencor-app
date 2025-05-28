@@ -35,8 +35,8 @@
                 <div class="single-contact-info text-center">
                     <img src="assets/assets/images/icon/contact_info-3.webp" alt="icon">
                     <h4>E-mail</h4>
-                    <p>Email : 
-                        <a href="#" class="__cf_email__" >
+                    <p>Email :
+                        <a href="#" class="__cf_email__">
                             admin@yencor.com | info@yencor.com | support@yencor.com
                         </a>
                     </p>
@@ -47,42 +47,43 @@
 </div>
 
 <!-- Feedback Form Section -->
-<div class="feedback-form">
-    <h1>Give us a Feedback</h1>
+<div class="feedback-section">
+    <div class="feedback-container">
 
-    @if(session('success'))
-        <p class="success-message">{{ session('success') }}</p>
-    @endif
+        <h2 class="feedback-title">Give us your Feedback</h2>
 
-    <form action="{{ route('contact.store') }}" method="POST">
-        @csrf
-        
-        <div class="form-group">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+        @if(session('success'))
+        <div class="feedback-alert-success" role="alert">
+            {{ session('success') }}
+            <button class="feedback-alert-close" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+        @endif
+
+        <form action="{{ route('contact.store') }}" method="POST" class="feedback-form">
+            @csrf
+
+            <label for="name" class="feedback-label">Your Name</label>
+            <input type="text" id="name" name="name" value="{{ old('name') }}" required class="feedback-input">
             @error('name')
-                <p class="error-message">{{ $message }}</p>
+            <p class="feedback-error">{{ $message }}</p>
             @enderror
-        </div>
 
-        <div class="form-group">
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+            <label for="email" class="feedback-label">Your Email</label>
+            <input type="email" id="email" name="email" value="{{ old('email') }}" required class="feedback-input">
             @error('email')
-                <p class="error-message">{{ $message }}</p>
+            <p class="feedback-error">{{ $message }}</p>
             @enderror
-        </div>
 
-        <div class="form-group">
-            <label for="message">Your Message:</label><br>
-            <textarea id="message" name="message" rows="5" required>{{ old('message') }}</textarea>
+            <label for="message" class="feedback-label">Your Message</label>
+            <textarea id="message" name="message" rows="5" required class="feedback-input">{{ old('message') }}</textarea>
             @error('message')
-                <p class="error-message">{{ $message }}</p>
+            <p class="feedback-error">{{ $message }}</p>
             @enderror
-        </div>
 
-        <button type="submit" class="submit-btn">Submit</button>
-    </form>
+            <button type="submit" class="feedback-button">Submit Feedback</button>
+        </form>
+
+    </div>
 </div>
 
 @endsection
