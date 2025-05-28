@@ -47,54 +47,43 @@
 </div>
 
 <!-- Feedback Form Section -->
-<div class="feedback-form py-5" style="background-color: #f9fafb;">
-    <div class="container d-flex justify-content-center">
-        <div class="col-lg-8 col-xl-6">
+<div class="feedback-section">
+    <div class="feedback-container">
 
-            <h1 class="text-center mb-4 fw-bold text-dark">Give us your Feedback</h1>
+        <h2 class="feedback-title">Give us your Feedback</h2>
 
-            @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            @endif
-
-            <form action="{{ route('contact.store') }}" method="POST" class="bg-white p-4 p-md-5 rounded shadow-sm">
-                @csrf
-
-                <div class="mb-3">
-                    <label for="name" class="form-label fw-semibold">Your Name</label>
-                    <input type="text" id="name" name="name" value="{{ old('name') }}" required class="form-control">
-                    @error('name')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label fw-semibold">Your Email</label>
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" required class="form-control">
-                    @error('email')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="message" class="form-label fw-semibold">Your Message</label>
-                    <textarea id="message" name="message" rows="5" required class="form-control">{{ old('message') }}</textarea>
-                    @error('message')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100 fw-semibold py-2">
-                    Submit Feedback
-                </button>
-            </form>
-
+        @if(session('success'))
+        <div class="feedback-alert-success" role="alert">
+            {{ session('success') }}
+            <button class="feedback-alert-close" onclick="this.parentElement.style.display='none';">&times;</button>
         </div>
+        @endif
+
+        <form action="{{ route('contact.store') }}" method="POST" class="feedback-form">
+            @csrf
+
+            <label for="name" class="feedback-label">Your Name</label>
+            <input type="text" id="name" name="name" value="{{ old('name') }}" required class="feedback-input">
+            @error('name')
+            <p class="feedback-error">{{ $message }}</p>
+            @enderror
+
+            <label for="email" class="feedback-label">Your Email</label>
+            <input type="email" id="email" name="email" value="{{ old('email') }}" required class="feedback-input">
+            @error('email')
+            <p class="feedback-error">{{ $message }}</p>
+            @enderror
+
+            <label for="message" class="feedback-label">Your Message</label>
+            <textarea id="message" name="message" rows="5" required class="feedback-input">{{ old('message') }}</textarea>
+            @error('message')
+            <p class="feedback-error">{{ $message }}</p>
+            @enderror
+
+            <button type="submit" class="feedback-button">Submit Feedback</button>
+        </form>
+
     </div>
 </div>
-
 
 @endsection
