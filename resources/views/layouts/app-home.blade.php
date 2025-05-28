@@ -7,14 +7,16 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap" async defer></script>
 
     <meta name="description" content="yencor - An AI-Powered Smart Public Transportation">
-    
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="robots" content="follow, download App" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/assets/images/icon/yencor-favicon2.ico') }}">
 
-    <x-css-links/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <x-css-links />
 </head>
 
 <body class="theme-1">
@@ -27,7 +29,7 @@
     <x-footer></x-footer>
 
     <x-js-scripts></x-js-scripts>
-    
+
     @stack('scripts')
 
 </body>
