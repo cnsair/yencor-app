@@ -25,7 +25,7 @@ class GuestMessageController extends Controller
 
         GuestMessage::create($validatedData);
 
-        return redirect()->back()->with('success', 'Thank you for your message! An admin might get back to you.');
+        return redirect()->back()->with('success', 'Thank you for your message! An admin will get back to you.');
     }
 
     // Display message to admin
@@ -39,9 +39,9 @@ class GuestMessageController extends Controller
     public function show(GuestMessage $message)
     {
         // Check if message exists
-       if (!$message) {
-           return redirect()->back()->with('status', 'error');
-       }
+        if (!$message) {
+            return redirect()->back()->with('status', 'error');
+        }
 
         // Toggle is_read read->1
         $message->is_read = 1;
@@ -52,16 +52,16 @@ class GuestMessageController extends Controller
 
     // Delete message by admin
     public function destroy($id)
-    {   
+    {
         $message = GuestMessage::findOrFail($id);
         $message->delete();
         return Redirect::route('admin.guest-msg.index', $message)
-                            ->with('status', 'success');
+            ->with('status', 'success');
     }
 
     public function toggleRead(GuestMessage $message)
     {
-         // Check if message exists
+        // Check if message exists
         if (!$message) {
             return redirect()->back()->with('status', 'error');
         }
