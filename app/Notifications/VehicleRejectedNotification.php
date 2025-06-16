@@ -47,20 +47,16 @@ class VehicleRejectedNotification extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('[Action Required] Vehicle Approval Rejected - ' . $this->vehicle->make . ' ' . $this->vehicle->model)
+            ->subject('❌ Vehicle Documents Rejected: ' . $this->vehicle->make . ' ' . $this->vehicle->model)
             ->greeting('Hello ' . $notifiable->name . ',')
-            ->line('We regret to inform you that your vehicle submission has been rejected.')
-            ->line('Vehicle Details:')
-            ->line('- Make: ' . $this->vehicle->make)
-            ->line('- Model: ' . $this->vehicle->model)
-            ->line('- VIN: ' . $this->vehicle->vin)
-            ->line('')
-            ->line('Rejection Reason:')
-            ->line($this->reason)
-            ->action('View Vehicle Details', route('vehicles.show', $this->vehicle))
-            ->line('Please correct the issues and resubmit your vehicle for approval.')
-            ->line('If you have any questions, please contact our support team.')
-            ->salutation('Regards, ' . config('app.name'));
+            ->line('We regret to inform you that your vehicle documents have been rejected.')
+            ->line('Reason: ' . $this->reason)
+            ->line('Please review the following documents and resubmit:')
+            ->line('- Vehicle Photo: ' . ($this->vehicle->vehicle_photo ? 'Submitted' : 'Missing'))
+            ->line('- Insurance Document: ' . ($this->vehicle->insurance_document ? 'Submitted' : 'Missing'))
+            ->line('- Registration Document: ' . ($this->vehicle->registration_document ? 'Submitted' : 'Missing'))
+            ->action('Resubmit Documents', route('driver.register-vehicle'))
+            ->line('If you need assistance, please contact our support team.');
     }
 
     /**

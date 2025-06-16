@@ -85,7 +85,7 @@ Route::middleware(['auth', 'audit-trail'])->group(function() {
     // Driver Routes
     //========================================================
     Route::middleware(['check.role:driver'])->prefix('driver')->name('driver.')->group(function () {
-        Route::get('/dashboard', [VehicleController::class, 'showAll'])->name('dashboard');
+        Route::get('/dashboard', [VehicleController::class, 'index'])->name('dashboard');
 
         Route::get('/edit-profile', function () {
             return view('driver.edit-profile');

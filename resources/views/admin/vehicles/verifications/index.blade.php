@@ -1,6 +1,7 @@
 @extends('layouts.app-admin')
 
 @section('content')
+
     <div class="app-inner-layout__wrapper">
         <div class="app-inner-layout__content">
             <div class="tab-content">
@@ -129,10 +130,20 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.vehicle-verifications.show', $vehicle) }}" 
-                                                   class="btn btn-sm btn-primary">
-                                                    Review
-                                                </a>
+                                                @if($vehicle->verification_status === 'pending')
+                                                    <!-- Livewire Approve / Reject buttons -->
+                                                    <button wire:click="approve({{ $vehicle->id }})" class="btn btn-sm btn-success">
+                                                        Approve
+                                                    </button>
+                                                    <button wire:click="reject({{ $vehicle->id }})" class="btn btn-sm btn-danger">
+                                                        Reject
+                                                    </button>
+                                                @else
+                                                    <a href="{{ route('admin.vehicle-verifications.show', $vehicle) }}" 
+                                                       class="btn btn-sm btn-primary">
+                                                        Review
+                                                    </a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @empty

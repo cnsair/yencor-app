@@ -14,13 +14,13 @@ class Vehicle extends Model
     use HasFactory;
 
     protected $casts = [
+        'verification_status' => VerificationStatus::class,
         'insurance_expiration' => 'datetime:Y-m-d',
         'license_expiration' => 'datetime:Y-m-d',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'verified_at' => 'datetime',
         'is_active' => 'boolean',
-        'verification_status' => VerificationStatus::class,
     ];
 
     protected $fillable = [
@@ -28,6 +28,7 @@ class Vehicle extends Model
         'make',
         'model',
         'year_of_manufacture',
+        'license_plate',
         'license_plate',
         'vin',
         'color',
@@ -53,6 +54,7 @@ class Vehicle extends Model
 
     protected $attributes = [
         'verification_status' => VerificationStatus::PENDING,
+        'verification_status' => VerificationStatus::PENDING,
         'is_active' => true,
     ];
 
@@ -68,13 +70,20 @@ class Vehicle extends Model
         return $this->belongsTo(User::class, 'verified_by');
     }
 
+    public function verificationActivities(): HasMany
+    {
+        return $this->hasMany(VehicleVerificationActivity::class)->latest();
+    }
+
     public function scopePendingVerification($query)
     {
+        return $query->where('verification_status', VerificationStatus::PENDING);
         return $query->where('verification_status', VerificationStatus::PENDING);
     }
 
     public function scopeApproved($query)
     {
+        return $query->where('verification_status', VerificationStatus::APPROVED);
         return $query->where('verification_status', VerificationStatus::APPROVED);
     }
 
@@ -85,10 +94,12 @@ class Vehicle extends Model
 
     public function getDocumentStatusAttribute(): array
     {
+        $disk = config('filesystems.default');
+        
         return [
-            'vehicle_photo' => !empty($this->vehicle_photo),
-            'insurance_document' => !empty($this->insurance_document),
-            'registration_document' => !empty($this->registration_document),
+            'vehicle_photo' => $this->vehicle_photo && Storage::disk($disk)->exists($this->vehicle_photo),
+            'insurance_document' => $this->insurance_document && Storage::disk($disk)->exists($this->insurance_document),
+            'registration_document' => $this->registration_document && Storage::disk($disk)->exists($this->registration_document),
         ];
     }
 
@@ -104,13 +115,40 @@ class Vehicle extends Model
             'verified_by' => $verifiedBy->id,
             'verified_at' => now(),
             'verification_notes' => $notes,
-            'is_active' => true,
+            'is_active' => $status === VerificationStatus::APPROVED,
+        ]);
+
+        $this->verificationActivities()->create([
+            'user_id' => $verifier->id,
+            'status' => $status,
+            'notes' => $notes
         ]);
     }
 
-    public static function validationRules(?int $vehicleId = null): array
+    public function markAsApproved(User $verifier, ?string $notes = null): void
     {
-        return [
+        $this->verify($verifier, VerificationStatus::APPROVED, $notes);
+    }
+
+    public function markAsRejected(User $verifier, string $notes): void
+    {
+        $this->verify($verifier, VerificationStatus::REJECTED, $notes);
+    }
+
+    public function resetVerification(): void
+    {
+        $this->update([
+            'verification_status' => VerificationStatus::PENDING,
+            'verified_by' => null,
+            'verified_at' => null,
+            'verification_notes' => null,
+        ]);
+    }
+
+    // Validation
+    public static function validationRules(?int $vehicleId = null, bool $isUpdate = false): array
+    {
+        $rules = [
             'make' => 'required|string|max:255',
             'model' => 'required|string|max:255',
             'vin' => [
@@ -126,5 +164,13 @@ class Vehicle extends Model
             'insurance_document' => 'sometimes|file|mimes:pdf,jpeg,png|max:2048',
             'registration_document' => 'sometimes|file|mimes:pdf,jpeg,png|max:2048',
         ];
+
+        if (!$isUpdate) {
+            $rules['vehicle_photo'] = 'required|file|mimes:jpeg,png,jpg,gif|max:2048';
+            $rules['insurance_document'] = 'required|file|mimes:pdf,jpeg,png|max:2048';
+            $rules['registration_document'] = 'required|file|mimes:pdf,jpeg,png|max:2048';
+        }
+
+        return $rules;
     }
 }

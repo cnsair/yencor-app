@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vehicle;
-use App\Models\User;
 use App\Enums\VerificationStatus;
 use App\Notifications\VehicleApprovedNotification;
 use App\Notifications\VehicleRejectedNotification;
 use App\Notifications\VehicleChangesRequestedNotification;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Gate;
@@ -17,6 +17,8 @@ use Illuminate\View\View;
 
 class VehicleVerificationController extends Controller
 {
+    use AuthorizesRequests;
+
     private const PAGINATION_LIMIT = 20;
     private const ALLOWED_DOCUMENTS = [
         'vehicle_photo',
@@ -26,6 +28,8 @@ class VehicleVerificationController extends Controller
 
     public function index(Request $request): View
     {
+        $this->authorize('viewAny', Vehicle::class);
+
         $query = $this->buildVehicleQuery($request);
         $vehicles = $this->paginateResults($query, $request);
 
@@ -70,7 +74,7 @@ class VehicleVerificationController extends Controller
         Gate::authorize('view', $vehicle);
         $vehicle->load(['user', 'verifiedBy']);
         return view('admin.vehicles.verifications.show', [
-            'vehicle' => $vehicle->load(['user', 'verifiedBy']),
+            'vehicle' => $vehicle,
             'documentTypes' => self::ALLOWED_DOCUMENTS
         ]);
     }

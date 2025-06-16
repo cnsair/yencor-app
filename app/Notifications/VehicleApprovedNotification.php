@@ -42,18 +42,15 @@ class VehicleApprovedNotification extends Notification implements ShouldQueue
     {
         return (new MailMessage)
             ->subject('✅ Vehicle Approved: ' . $this->vehicle->make . ' ' . $this->vehicle->model)
-            ->greeting('Congratulations ' . $notifiable->name . '!')
-            ->line('Your vehicle has been successfully approved and is now active in our system.')
+            ->greeting('Hello ' . $notifiable->name . ',')
+            ->line('Your vehicle documents have been approved and your vehicle is now active in our system.')
             ->line('Vehicle Details:')
             ->line('- Make: ' . $this->vehicle->make)
             ->line('- Model: ' . $this->vehicle->model)
             ->line('- Year: ' . $this->vehicle->year_of_manufacture)
-            ->line('- License Plate: ' . $this->vehicle->license_date)
-            ->line('')
-            ->action('View Your Vehicle', route('vehicles.show', $this->vehicle))
-            ->line('You can now use this vehicle for all platform services.')
-            ->line('If you have any questions, please contact our support team.')
-            ->salutation('Best Regards, ' . config('app.name'));
+            ->line('- License Plate: ' . $this->vehicle->license_plate)
+            ->action('View Your Vehicle', route('driver.dashboard'))
+            ->line('Thank you for using our service!');
     }
 
     /**

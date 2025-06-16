@@ -19,9 +19,10 @@
                             <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                                 <i class="header-icon pe-7s-car icon-gradient bg-happy-green"></i>
                                 Vehicle Verification Details
+                                Vehicle Verification Details
                             </div>
                             <div class="btn-actions-pane-right text-capitalize">
-                                <a href="{{ route('admin.vehicle-verifications.index', ['pending' => true]) }}" 
+                                <a href="{{ route('admin.vehicle-verifications.index') }}" 
                                    class="btn-wide btn-outline-2x mr-md-2 btn btn-outline-focus btn-sm">
                                     Back to Verifications
                                 </a>
@@ -359,6 +360,57 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Verification Actions Section -->
+                    @if($vehicle->verification_status === \App\Enums\VerificationStatus::PENDING)
+                        <div class="card mt-4">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">Document Verification</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <!-- Approve Button -->
+                                    <button type="button" class="btn btn-success px-4 py-2 flex-grow-1" 
+                                            data-bs-toggle="modal" data-bs-target="#approveModal">
+                                        <i class="fas fa-check-circle me-2"></i> Approve Documents
+                                    </button>
+
+                                    <!-- Reject Button -->
+                                    <button type="button" class="btn btn-danger px-4 py-2 flex-grow-1" 
+                                            data-bs-toggle="modal" data-bs-target="#rejectModal">
+                                        <i class="fas fa-times-circle me-2"></i> Reject Documents
+                                    </button>
+                                    
+                                    <!-- Changes Requested Button -->
+                                    <button type="button" class="btn btn-warning px-4 py-2 flex-grow-1" 
+                                            data-bs-toggle="modal" data-bs-target="#changesRequestedModal">
+                                        <i class="fas fa-exclamation-circle me-2"></i> Request Changes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="alert alert-{{
+                            $vehicle->verification_status === \App\Enums\VerificationStatus::APPROVED ? 'success' :
+                            ($vehicle->verification_status === \App\Enums\VerificationStatus::CHANGES_REQUESTED ? 'warning' : 'danger')
+                        }} mt-4">
+                            <strong>
+                                <i class="fas fa-{{
+                                    $vehicle->verification_status === \App\Enums\VerificationStatus::APPROVED ? 'check' :
+                                    ($vehicle->verification_status === \App\Enums\VerificationStatus::CHANGES_REQUESTED ? 'exclamation' : 'times')
+                                }}-circle me-2"></i>
+                                Documents {{ ucfirst(str_replace('_', ' ', $vehicle->verification_status->value)) }}
+                            </strong>
+                            @if(in_array($vehicle->verification_status, [
+                                    \App\Enums\VerificationStatus::REJECTED,
+                                    \App\Enums\VerificationStatus::CHANGES_REQUESTED
+                                ]) && $vehicle->verification_notes)
+                                <div class="mt-2">
+                                    <strong>Reason:</strong> {{ $vehicle->verification_notes }}
+                                </div>
+                            @endif
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
