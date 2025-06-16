@@ -189,21 +189,25 @@ Route::middleware(['auth', 'audit-trail'])->group(function() {
             ->name('blogs.update');
 
         // Vehicle Verifications
-        Route::prefix('vehicle-verifications')->name('vehicle-verifications.')->group(function () {
+        Route::prefix('vehicle-verifications')->name('admin.vehicle-verifications.')->group(function () {
             Route::get('/', [VehicleVerificationController::class, 'index'])
                 ->name('index');
+            
+            Route::get('/{vehicle}/documents/{document}', [VehicleVerificationController::class, 'viewDocument'])
+                ->name('view-document')
+                ->where('document', 'vehicle_photo|insurance_document|registration_document');
             
             Route::get('/{vehicle}', [VehicleVerificationController::class, 'show'])
                 ->name('show');
             
-            Route::post('/{vehicle}/approve', [VehicleVerificationController::class, 'approve'])
+            Route::patch('/{vehicle}/approve', [VehicleVerificationController::class, 'approve'])
                 ->name('approve');
             
-            Route::post('/{vehicle}/reject', [VehicleVerificationController::class, 'reject'])
+            Route::patch('/{vehicle}/reject', [VehicleVerificationController::class, 'reject'])
                 ->name('reject');
             
-            Route::get('/{vehicle}/document/{document}', [VehicleVerificationController::class, 'viewDocument'])
-                ->name('document');
+            Route::patch('/{vehicle}/request-changes', [VehicleVerificationController::class, 'requestChanges'])
+                ->name('request-changes');
         });
     });
 });

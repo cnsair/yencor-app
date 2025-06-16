@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\VerificationStatus;
-use App\Models\User; // Explicit import
+use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Validation\Rule;
 
 class Vehicle extends Model
 {
@@ -27,7 +28,7 @@ class Vehicle extends Model
         'make',
         'model',
         'year_of_manufacture',
-        'license_date',
+        'license_plate',
         'vin',
         'color',
         'vehicle_type',
@@ -45,11 +46,13 @@ class Vehicle extends Model
         'verification_status',
         'verification_notes',
         'verified_by',
-        'verified_at'
+        'verified_at',
+        'rejection_reason',
+        'changes_requested',
     ];
 
     protected $attributes = [
-        'verification_status' => VerificationStatus::PENDING->value,
+        'verification_status' => VerificationStatus::PENDING,
         'is_active' => true,
     ];
 
@@ -65,23 +68,21 @@ class Vehicle extends Model
         return $this->belongsTo(User::class, 'verified_by');
     }
 
-    // Scopes
     public function scopePendingVerification($query)
     {
-        return $query->where('verification_status', VerificationStatus::PENDING->value);
+        return $query->where('verification_status', VerificationStatus::PENDING);
     }
 
     public function scopeApproved($query)
     {
-        return $query->where('verification_status', VerificationStatus::APPROVED->value);
+        return $query->where('verification_status', VerificationStatus::APPROVED);
     }
 
     public function scopeRejected($query)
     {
-        return $query->where('verification_status', VerificationStatus::REJECTED->value);
+        return $query->where('verification_status', VerificationStatus::REJECTED);
     }
 
-    // Accessors
     public function getDocumentStatusAttribute(): array
     {
         return [
@@ -91,16 +92,15 @@ class Vehicle extends Model
         ];
     }
 
-    // Helpers
     public function isApproved(): bool
     {
-        return $this->verification_status === VerificationStatus::APPROVED->value;
+        return $this->verification_status === VerificationStatus::APPROVED;
     }
 
     public function markAsVerified(User $verifiedBy, ?string $notes = null): void
     {
         $this->update([
-            'verification_status' => VerificationStatus::APPROVED->value,
+            'verification_status' => VerificationStatus::APPROVED,
             'verified_by' => $verifiedBy->id,
             'verified_at' => now(),
             'verification_notes' => $notes,
@@ -117,7 +117,7 @@ class Vehicle extends Model
                 'required',
                 'string',
                 Rule::unique('vehicles', 'vin')->ignore($vehicleId),
-                new VinNumber(), // Optional custom rule
+           
             ],
             'year_of_manufacture' => 'required|integer|min:1900|max:'.(date('Y')+1),
             'insurance_expiration' => 'required|date|after:today',

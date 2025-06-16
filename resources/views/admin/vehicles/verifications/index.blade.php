@@ -101,12 +101,31 @@
                                             </td>
                                             <td>{{ $vehicle->created_at->format('M d, Y') }}</td>
                                             <td>
-                                                @if($vehicle->verification_status === 'pending')
-                                                    <span class="badge bg-warning">Pending</span>
-                                                @elseif($vehicle->verification_status === 'approved')
-                                                    <span class="badge bg-success">Approved</span>
-                                                @else
-                                                    <span class="badge bg-danger">Rejected</span>
+                                                @switch($vehicle->verification_status->value)
+                                                    @case(\App\Enums\VerificationStatus::APPROVED->value)
+                                                        <span class="badge bg-success">APPROVED</span>
+                                                        @break
+                                                    @case(\App\Enums\VerificationStatus::REJECTED->value)
+                                                        <span class="badge bg-danger">REJECTED</span>
+                                                        @break
+                                                    @case(\App\Enums\VerificationStatus::CHANGES_REQUESTED->value)
+                                                        <span class="badge bg-warning">CHANGES REQUESTED</span>
+                                                        @break
+                                                    @default
+                                                        <span class="badge bg-warning">PENDING REVIEW</span>
+                                                @endswitch
+
+                                                @if($vehicle->verification_status !== \App\Enums\VerificationStatus::PENDING && $vehicle->verified_at)
+                                                    <span class="badge bg-info ms-2">
+                                                        @if($vehicle->verification_status === \App\Enums\VerificationStatus::APPROVED)
+                                                            APPROVED
+                                                        @elseif($vehicle->verification_status === \App\Enums\VerificationStatus::REJECTED)
+                                                            REJECTED
+                                                        @elseif($vehicle->verification_status === \App\Enums\VerificationStatus::CHANGES_REQUESTED)
+                                                            CHANGES REQUESTED
+                                                        @endif
+                                                        ON {{ $vehicle->verified_at->format('M d') }}
+                                                    </span>
                                                 @endif
                                             </td>
                                             <td>

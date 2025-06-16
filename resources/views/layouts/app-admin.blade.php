@@ -61,7 +61,8 @@
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 
 <script type="text/javascript" src="{{ asset('assets/admin/scripts/main.07a59de7b920cd76b874.js') }}"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

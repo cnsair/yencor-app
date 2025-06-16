@@ -27,9 +27,12 @@ class VehicleVerificationPolicy
      */
     public function view(User $user, Vehicle $vehicle): Response
     {
-        return $user->isAdmin() || $user->id === $vehicle->user_id
-            ? Response::allow()
-            : Response::deny('You do not have permission to view this vehicle.');
+        // Allow admin or vehicle owner to view
+        if ($user->isAdmin() || $user->id === $vehicle->user_id) {
+            return Response::allow();
+        }
+
+        return Response::deny('You do not have permission to view this vehicle.');
     }
 
     /**
@@ -47,9 +50,16 @@ class VehicleVerificationPolicy
      */
     public function update(User $user, Vehicle $vehicle): Response
     {
-        return $user->id === $vehicle->user_id || $user->isAdmin()
-            ? Response::allow()
-            : Response::deny('You can only edit your own vehicles.');
+        // Allow admin or vehicle owner to update
+        if ($user->id === $vehicle->user_id || $user->isAdmin()) {
+            // Prevent updates if vehicle is already approved/rejected
+            if ($vehicle->verification_status !== VerificationStatus::PENDING && !$user->isAdmin()) {
+                return Response::deny('Cannot update a vehicle that has been verified.');
+            }
+            return Response::allow();
+        }
+
+        return Response::deny('You can only edit your own vehicles.');
     }
 
     /**
@@ -67,9 +77,21 @@ class VehicleVerificationPolicy
      */
     public function approve(User $user, Vehicle $vehicle): Response
     {
-        return $user->isAdmin() && $vehicle->verification_status === VerificationStatus::PENDING
-            ? Response::allow()
-            : Response::deny('Only administrators can approve pending vehicles.');
+        // Must be admin and vehicle must be pending
+        if (!$user->isAdmin()) {
+            return Response::deny('Only administrators can approve vehicles.');
+        }
+
+        if ($vehicle->verification_status !== VerificationStatus::PENDING) {
+            return Response::deny('Only pending vehicles can be approved.');
+        }
+
+        // Prevent self-approval if already verified
+        if ($vehicle->verified_by === $user->id) {
+            return Response::deny('You cannot approve a vehicle you previously verified.');
+        }
+
+        return Response::allow();
     }
 
     /**
@@ -77,6 +99,7 @@ class VehicleVerificationPolicy
      */
     public function reject(User $user, Vehicle $vehicle): Response
     {
+        // Must be admin and vehicle must be pending
         if (!$user->isAdmin()) {
             return Response::deny('Only administrators can reject vehicles.');
         }
@@ -85,8 +108,9 @@ class VehicleVerificationPolicy
             return Response::deny('Only pending vehicles can be rejected.');
         }
 
+        // Prevent self-rejection if already verified
         if ($vehicle->verified_by === $user->id) {
-            return Response::deny('You cannot reject a vehicle you verified.');
+            return Response::deny('You cannot reject a vehicle you previously verified.');
         }
 
         return Response::allow();
@@ -97,9 +121,16 @@ class VehicleVerificationPolicy
      */
     public function requestChanges(User $user, Vehicle $vehicle): Response
     {
-        return $user->isAdmin() && $vehicle->verification_status === VerificationStatus::PENDING
-            ? Response::allow()
-            : Response::deny('Only administrators can request changes for pending vehicles.');
+        // Must be admin and vehicle must be pending
+        if (!$user->isAdmin()) {
+            return Response::deny('Only administrators can request changes.');
+        }
+
+        if ($vehicle->verification_status !== VerificationStatus::PENDING) {
+            return Response::deny('Changes can only be requested for pending vehicles.');
+        }
+
+        return Response::allow();
     }
 
     /**
@@ -121,4 +152,17 @@ class VehicleVerificationPolicy
             ? Response::allow()
             : Response::deny('Only administrators can permanently delete vehicles.');
     }
+
+    /**
+     * Determine whether the user can download vehicle documents.
+     */
+    public function downloadDocuments(User $user, Vehicle $vehicle): Response
+    {
+        // Allow admin or vehicle owner to download documents
+        return $user->isAdmin() || $user->id === $vehicle->user_id
+            ? Response::allow()
+            : Response::deny('You do not have permission to download these documents.');
+    }
+
+    
 }

@@ -63,4 +63,23 @@ class VehicleController extends Controller
 
         return Redirect()->back()->with('status', 'success');
     }
+
+        /**
+     * Display a listing of all vehicles (for the driver dashboard).
+     */
+    public function showAll()
+    {
+        $vehicle_data = Vehicle::where('user_id', auth()->id())->get();
+        return view('driver.dashboard', compact('vehicle_data'));
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function verifiedBy()
+    {
+        return $this->belongsTo(User::class, 'verified_by');
+    }
 }
