@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\GuestMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 class GuestMessageController extends Controller
@@ -21,7 +22,21 @@ class GuestMessageController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|string|min:10|max:1500',
+            'g-recaptcha-response' => ['required', function ($attribute, $value, $fail) use ($request) {
+                $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => env('RECAPTCHA_SECRET_KEY'),
+                    'response' => $value,
+                    'remoteip' => $request->ip(),
+                ])->json();
+
+                if (!$response['success']) {
+                    $fail('reCAPTCHA verification failed.');
+                }
+            }],
         ]);
+
+        // Validate reCAPTCHA
+
 
         GuestMessage::create($validatedData);
 
@@ -39,9 +54,9 @@ class GuestMessageController extends Controller
     public function show(GuestMessage $message)
     {
         // Check if message exists
-       if (!$message) {
-           return redirect()->back()->with('status', 'error');
-       }
+        if (!$message) {
+            return redirect()->back()->with('status', 'error');
+        }
 
         // Toggle is_read read->1
         $message->is_read = 1;
@@ -52,16 +67,16 @@ class GuestMessageController extends Controller
 
     // Delete message by admin
     public function destroy($id)
-    {   
+    {
         $message = GuestMessage::findOrFail($id);
         $message->delete();
         return Redirect::route('admin.guest-msg.index', $message)
-                            ->with('status', 'success');
+            ->with('status', 'success');
     }
 
     public function toggleRead(GuestMessage $message)
     {
-         // Check if message exists
+        // Check if message exists
         if (!$message) {
             return redirect()->back()->with('status', 'error');
         }
