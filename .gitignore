@@ -3,7 +3,6 @@
 /public/build
 /public/hot
 /public/storage
-/public/assets
 /storage/*.key
 /user-interface/assets/images
 /user-interface/assets/bg-video-2.mp4

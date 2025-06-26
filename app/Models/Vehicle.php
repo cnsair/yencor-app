@@ -172,5 +172,11 @@ class Vehicle extends Model
         }
 
         return $rules;
+
+    }
+    // Optional: Define relationships or additional methods, if needed
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class, 'user_id');
     }
 }

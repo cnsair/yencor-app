@@ -56,10 +56,10 @@ class User extends Authenticatable
         return $this->hasMany(Admin::class);
     }
 
-    public function vehicle()
-    {
-        return $this->hasMany(Vehicle::class);
-    }
+    // public function vehicle()
+    // {
+    //     return $this->hasMany(Vehicle::class);
+    // }
 
     public function isRider()
     {

@@ -1,0 +1,280 @@
+input[type="radio"] {
+    appearance: radio !important; /* Ensures default radio button styling is used */
+    visibility: visible !important;
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    opacity: 1 !important;
+    /* vertical-align: middle !important; */
+}
+
+.about-us-area:after {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    content: "";
+    background-image: url(../../assets/images/home/bus-4.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30%;
+}
+
+.in-line{
+    display: inline-block;
+}
+
+.align{
+    align-items:  end;
+    align-content: end !important;
+}
+
+.profile-picture-header {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+
+/* 
+    Written by Kenneth
+*/
+.dropdown-container {
+    margin-top: 20px;
+}
+
+.dropdown-box {
+    background-color: rgba(255, 255, 255, 0.05); /* Low transparency for the background of the box */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle border */
+    box-shadow: 0 4px 8px rgba(255, 223, 0, 0.1); /* Yellow shadow similar to bee color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.dropdown-text {
+    color: black; /* Full opacity for the text to remain clearly visible */
+}
+
+.dropdown-icon {
+    width: 24px; /* Icon width */
+    height: 24px; /* Icon height */
+    fill: black; /* Full opacity for the icon to remain clearly visible */
+}
+
+.dropdown-content {
+    margin-top: 10px;
+}
+
+.dropdown-text-box {
+    background-color: rgba(255, 255, 255, 0.05); /* Very low transparency for the dropdown text box */
+    padding: 10px; /* Padding around text */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for dropdown text */
+}
+
+.dropdown-text-content {
+    text-align: justify; /* Justifies the text */
+    margin: 0; /* Remove margin */
+}
+
+.justified-text {
+    text-align: justify; /* Justifies the text */
+}
+
+.form-check-inline {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.form-check-label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.form-check-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-check-inline.selected .form-check-label::before {
+    background-color: #333333; 
+    border-color: #666666;    
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.form-group.car-options {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    gap: 10px; 
+    align-items: center;
+}
+
+.car-option {
+    text-align: center;
+    display: inline-block;
+    width: 100px; 
+    cursor: pointer;
+    margin: 0; 
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-image {
+    display: block;
+    border-radius: 50%; 
+    width: 80px; 
+    height: 80px;
+    object-fit: cover; 
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease;
+}
+
+.car-option:hover .car-image {
+    transform: scale(1.3); 
+    border: 3px solid rgb(92, 92, 89);
+}
+
+.car-image.selected {
+    border: 3px solid rgb(11, 11, 12); 
+    transform: scale(1.15); 
+}
+
+.car-details {
+    margin-top: 5px; 
+}
+
+.car-details p {
+    margin: 0;
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #333; 
+}
+
+/* 
+    By Kenneth ends here
+*/
+
+
+/* Feedback form container */
+.feedback-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Form title */
+.feedback-form h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form group (label + input/textarea) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input and textarea styles */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Focus state for input and textarea */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background-color: #44433F;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Submit button hover effect */
+.submit-btn:hover {
+    background-color: #e0a80b;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+}
+
+/* Success message styling */
+.success-message {
+    color: green;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hover-text-warning:hover {
+    color: gold !important;
+}

@@ -36,11 +36,11 @@ class UserController extends Controller
         } catch (\Exception $e) {
             // Log the error
             // \Illuminate\Support\Facades\Log::info($product);
-            \Illuminate\Support\Facades\Log::error('Error updating user status:', [
-                'error' => $e->getMessage(),
-                'user_id' => $id,
-                'status' => $request->input('status'),
-            ]);
+                \Illuminate\Support\Facades\Log::error('Error updating user status:', [
+                    'error' => $e->getMessage(),
+                    'user_id' => $id,
+                    'status' => $request->input('status'),
+                ]);
 
             // Return a JSON response indicating failure
             return response()->json(['success' => false, 'error' => $e->getMessage()], 500);

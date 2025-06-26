@@ -69,6 +69,53 @@ Route::middleware(['auth', 'audit-trail'])->group(function() {
         Route::get('/edit-profile', function () {
             return view('rider.edit-profile');
         })->name('edit-profile.edit');
+    //Main Redirect Controller
+    // Route::resource('redirects', RedirectController::class, 
+    // ['only' => 'index']);
+
+    Route::get('redirects', [RedirectController::class, 'index'])
+    ->name('user.redirect');
+  
+    // Audit Trail middleware
+    Route::group(['middleware' => 'audit-trail'], function() {
+
+        //========================================================
+        // Rider
+        //========================================================
+        Route::group(['middleware' => 'rider'], function() {
+            Route::prefix('rider')->group(function () {
+                Route::name('rider.')->group(function () {
+
+                    //view analytics page
+                    Route::get('/dashboard', function () {
+                        return view('rider.dashboard'); })
+                        ->name('dashboard');
+
+                    //dashboard:view
+                    Route::get('/edit-profile', function () {
+                        return view('rider.edit-profile'); })
+                        ->name('edit-profile.edit');
+
+                    //view upload page
+                    Route::patch('/edit-profile', [ProfileController::class, 'update'])
+                        ->name('edit-profile.update');
+
+                    //change password:view
+                    Route::get('/change-password', function () {
+                        return view('rider.change-password'); })
+                        ->name('change-password.edit');
+
+                    //update password page
+                    Route::patch('/change-password', [ChangePasswordController::class, 'updatePassword'])
+                        ->name('change-password.update');
+                });
+            });
+        });
+
+        //========================================================
+        // Driver
+        //========================================================
+        Route::group(['middleware' => 'driver'], function() {
         
         Route::patch('/edit-profile', [ProfileController::class, 'update'])
             ->name('edit-profile.update');

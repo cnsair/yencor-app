@@ -22,9 +22,9 @@
                     <img height="100" src="{{ asset('assets/assets/images/yencoin/yencoin-logo1.png') }}" alt="icon">
                     <!-- <i class="fab fa-btc fa-5x"></i> -->
 			
-                    <input type="text" class="form-control" id="copyText" disabled value="CA: Not available!" readonly>
-                    <p>Please check back! Contract address is not available yet!</p>
-                    <button class="btn btn-lg btn-primary mt-3" id="copyBtn" data-clipboard-target="#copyText">Copy</button>
+                    <input type="text" class="form-control" id="copyText" value="HTtFLChJyg3cqv3k5bYp4CUoGgZaKUAia3knMxHZpump" readonly>
+                    <!-- <p>Buy as many as you can! To the moon! </p> -->
+                    <button class="btn btn-lg btn-default mt-3" id="copyBtn" data-clipboard-target="#copyText">Copy</button>
 
                 </div>
             </div>

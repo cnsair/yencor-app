@@ -1,0 +1,17 @@
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+}
+
+/* Success message styling */
+.success-message {
+    color: green;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hover-text-warning:hover {
+    color: gold !important;
+}
