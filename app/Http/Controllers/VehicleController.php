@@ -19,9 +19,37 @@ class VehicleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+   public function store(Request $request)
+{
+    $validated = $request->validate(Vehicle::validationRules());
+
+    // Handle file uploads
+    $filePaths = [];
+    foreach (['vehicle_photo', 'insurance_document', 'registration_document'] as $file) {
+        if ($request->hasFile($file)) {
+            $filePaths[$file] = $request->file($file)->store('vehicle-documents');
+        }
+    }
+
+    // Create vehicle with PENDING status by default
+    $vehicle = auth()->user()->vehicles()->create(array_merge(
+        $validated,
+        $filePaths
+    ));
+
+    return redirect()->route('driver.dashboard')
+        ->with('status', 'Vehicle registered successfully! Waiting for verification.');
+}
+
+    public function index()
     {
-        //
+        // Get vehicles for the authenticated driver
+        $vehicle_data = Vehicle::where('user_id', auth()->id())->get();
+        
+        return view('driver.dashboard', [
+            'vehicle_data' => $vehicle_data
+        ]);
+        
     }
 
     /**
@@ -62,5 +90,24 @@ class VehicleController extends Controller
         }
 
         return Redirect()->back()->with('status', 'success');
+    }
+
+        /**
+     * Display a listing of all vehicles (for the driver dashboard).
+     */
+    public function showAll()
+    {
+        $vehicle_data = Vehicle::where('user_id', auth()->id())->get();
+        return view('driver.dashboard', compact('vehicle_data'));
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function verifiedBy()
+    {
+        return $this->belongsTo(User::class, 'verified_by');
     }
 }

@@ -1,13 +1,11 @@
 <div class="app-sidebar-wrapper">
     <div class="app-sidebar sidebar-shadow bg-dark sidebar-text-light">
         <div class="app-header__logo">
-
             @if ( Auth::user()->isAdmin() )
                 <a href="{{ route('admin.dashboard') }}">
                     <img height="70px" src="{{ asset('assets/assets/images/logo/logo-one.png') }}" data-toggle="tooltip" data-placement="bottom" title="Yenkor Admin" alt="Site Logo">
                 </a>
             @endif
-
             <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -38,6 +36,11 @@
                         <a href="blogs">
                             <i class="metismenu-icon pe-7s-news-paper"></i>
                             Blog
+                        </a>
+                        <!-- Added Vehicle Verifications menu item here -->
+                        <a href="{{ route('admin.vehicle-verifications.index') }}">
+                            <i class="metismenu-icon pe-7s-car"></i>
+                            Vehicle Verifications
                         </a>
                         <a href="#index-2.html">
                             <i class="metismenu-icon pe-7s-cloud-upload"></i>

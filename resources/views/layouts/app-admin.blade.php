@@ -11,8 +11,7 @@
     
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap" async defer></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <meta name="description" content="yencor - A ride hailing App for everyone">
     <link rel="icon" href="{{ asset('assets/assets/images/icon/yencor-favicon2.ico') }}">
 
@@ -24,9 +23,13 @@
     <link href="{{ asset('assets/admin/css/custom.css') }}" rel="stylesheet">
 
     <!-- FontType and Icons CSS -->
-	<link type="text/css" href="{{ asset('assets/admin/icon-font-7-stroke/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}" rel="stylesheet">
-	<link type="text/css" href="{{ asset('assets/admin/icon-font-7-stroke/pe-icon-7-stroke/css/helper.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets/admin/icon-font-7-stroke/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets/admin/icon-font-7-stroke/pe-icon-7-stroke/css/helper.css') }}" rel="stylesheet">
+
+    <!-- Livewire Styles -->
+    @livewireStyles
 </head>
+
 <body>
 <div class="app-container app-theme-gray">
     <div class="app-main">
@@ -61,7 +64,8 @@
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 
 <script type="text/javascript" src="{{ asset('assets/admin/scripts/main.07a59de7b920cd76b874.js') }}"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
